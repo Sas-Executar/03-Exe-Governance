@@ -1,0 +1,2403 @@
+schema: FORMULARIO_FUNDACIONAL_FUSIONADO_V1
+language: pt-BR
+description: 'Fusão dos dois documentos fundacionais (EXECUTAR_projetosaasentrypoint_EXPANDIDO, 94 campos
+  / 17 domínios, e ECOSYSTEM_MASTER_YAML_CARDS_V1, 75 cards / 12 fases) enriquecida com tópicos reais
+  lidos nos SKILL.md do vendor anthropic-knowledge-work-plugins (Regra Zero do Maestro): cada campo com
+  origem "enriquecido_via_plugin" cita plugin e skill de origem. Nenhum tópico de plugin foi incluído
+  sem leitura do SKILL.md correspondente.'
+sources:
+- 01-master-index/01-schemas/EXECUTAR_projetosaasentrypoint_EXPANDIDO.schema.json
+- 01-master-index/01-schemas/ECOSYSTEM_MASTER_YAML_CARDS_V1.yaml
+- 80-tecnologia-plataformas/05-gpt/03-skills/anthropic-knowledge-work-plugins
+fill_protocol:
+  rule: O usuário escolhe (ou aceita a ordem já confirmada de) um grupo de áreas, coleta os documentos
+    locais relevantes e envia. O Maestro extrai as respostas, preenche `valor` e muda `status` para `preenchido`
+    ou `parcial`, registrando proveniência e lacunas quando houver. Nenhuma área é preenchida sem material
+    enviado pelo usuário.
+  field_status_values:
+  - pendente
+  - preenchido
+  - parcial
+  - lacuna
+  - hipotese
+  - conflito
+  - nao_aplicavel
+  area_status_values:
+  - pendente
+  - em_andamento
+  - completo
+  field_origem_values:
+  - formulario_original
+  - enriquecido_via_plugin
+  tipo_informacao_values:
+  - fato_interno
+  - evidencia_externa
+  - inferencia
+  - hipotese
+  - decisao
+  - recomendacao
+  confianca_values:
+  - alta
+  - media
+  - baixa
+  rastreabilidade: Conforme Basedocumental310826.md §07-Output Requirements (OUT-08 status, OUT-09 tipo
+    de informação, OUT-10 fonte primária, OUT-12 evidência, OUT-15 confiança, OUT-17 lacuna específica
+    em vez de TBD, OUT-24 próxima ação).
+sending_order:
+  status: confirmado_pelo_usuario
+  inicio: '2026-08-31'
+  groups:
+  - group: 1
+    dia: 1
+    areas:
+    - 8
+    - 9
+    - 10
+    label: Gestão de Projetos & PMBOK + Planejamento Estratégico/Tático/Operacional + Roadmap/Backlog
+    total_campos: 16
+    status: preenchido_parcial
+    data_execucao: '2026-08-31'
+  - group: 2
+    dia: 2
+    areas:
+    - 1
+    - 2
+    label: Negócio & GTM + Produto
+    total_campos: 29
+    status: preenchido_parcial
+    data_execucao: '2026-08-31'
+  - group: 3
+    dia: 3
+    areas:
+    - 11
+    label: Editorial, Campanhas e Conteúdo (+ Design/Marca)
+    total_campos: 10
+    status: pendente
+  - group: 4
+    dia: 4
+    areas:
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    label: Stakeholders + Runbooks/SOPs + Pesquisa/Dados + Skills/Plugins + Plataformas/Contas + Prompt
+      Engineering
+    total_campos: 26
+    status: pendente
+  - group: 5
+    dia: 5
+    areas:
+    - 5
+    - 6
+    - 7
+    label: Operação (Deploy/Rollback) + Governança & Segurança + Documentação Fundacional
+    total_campos: 21
+    status: pendente
+  - group: 6
+    dia: 6
+    areas:
+    - 3
+    - 4
+    label: Arquitetura & Full Stack + Implementação
+    total_campos: 20
+    status: pendente
+areas:
+- area_id: 1
+  area_name: NEGÓCIO & GTM
+  area_description: Por que o produto existe, para quem, e como se sustenta financeiramente
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - STR-013
+  - STR-014
+  - BUS-030
+  - BUS-031
+  - GTM-090
+  fields:
+  - field_id: '1.1'
+    title: Problema central
+    description: Descreva em 1 frase o problema que o produto resolve.
+    example: 'Ex: Equipes técnicas perdem contexto entre sessões de IA e retrabalham decisões já tomadas.'
+    origem: formulario_original
+    valor: 'O problema aparece em três camadas distintas, por unidade. (a) ECO-01 App EXECUTAR — problema
+      operacional: “Paralisia por excesso, dificuldade de iniciação das tarefas, não linearidade de execução,
+      troca de contexto cognitivo, retrabalho por não respeitar cadeia única de valor e dependências,
+      memória de trabalho limitada, ausência de processos padronizados e múltiplas fontes de execução
+      e plataformas”. A decisão PROD-03 refina: a dor central é “dificuldade de transformar intenção em
+      comportamento organizado ao longo do tempo”, evitando o posicionamento genérico de “produtividade”;
+      PROD-06 define o problema observável prioritário como a combinação planejamento + memória + tempo
+      + procrastinação. (b) ECO-03 Framework/CERM — problema conceitual: “A distância entre intenção e
+      execução diante de vulnerabilidades cognitivas e demandas reais”; o documento adverte explicitamente
+      para NÃO usar “não execução” como problema principal, por ser estreito demais. (c) ECO-02 Blog Risco
+      Cognitivo — problema estratégico do lançamento editorial: “Apresentar o EXECUTAR cedo demais pode
+      reduzir a credibilidade da investigação e impedir distinguir interesse genuíno pelo problema de
+      interesse no produto”.'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: TRANSVERSAL (detalhado por ECO-01, ECO-03 e ECO-02)
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C07-009
+    - DOC-C01-005
+    - DOC-C02-039
+    - DOC-C07-002
+    - DOC-C07-010
+    evidencia: 'DOC-C05-001 (seção “Corpo”, linha Problema): “Paralisia por excesso, dificuldade de iniciação
+      das tarefas, não linearidade de execução, troca de contexto cognitivo, retrabalho por não respeitar
+      cadeia única de valor e dependências, memória de trabalho limitada, ausência de processos padronizados
+      e múltiplas fontes de execução e plataformas.” Perspectiva do usuário no mesmo documento: “Perco
+      dinheiro e oportunidades por atrasos e desorganização. […] O momento de maior ansiedade e aflição
+      são os primeiros 30 minutos iniciais, pois não sei onde estava ontem, o que devo fazer agora e como
+      sei que terminei.” | DOC-C07-009 (decisão PROD-03): “Definir a dor central como dificuldade de transformar
+      intenção em comportamento organizado ao longo do tempo, evitando o posicionamento genérico de ‘produtividade’.”
+      | DOC-C01-005: “Eu evitaria usar não execução como problema principal. É estreito demais.” e “A
+      distância entre intenção e execução diante de vulnerabilidades cognitivas e demandas reais.” | DOC-C02-039
+      (BMC, célula Problema): “Apresentar o EXECUTAR cedo demais pode reduzir a credibilidade da investigação
+      e impedir distinguir interesse genuíno pelo problema de interesse no produto.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: ''
+    proxima_acao: Registrar no formulário um enunciado de problema por unidade, em vez de fundir as três
+      camadas num único texto.
+  - field_id: '1.2'
+    title: Público-alvo / ICP
+    description: Quem é o cliente ideal — perfil, tamanho, contexto de uso.
+    example: 'Ex: Founders técnicos solo ou squads pequenos construindo produtos com IA integrada.'
+    origem: formulario_original
+    valor: 'CONFLITO ENTRE DOCUMENTOS. Versão A (DOC-C05-001, workbook Sas-06, seção Público): “Homens,
+      adultos, neurodivergentes, autônomos, na faixa dos 25–35 anos, recém-diagnosticados, que gerenciam
+      múltiplos processos e projetos ao mesmo tempo. Têm consciência básica de terminologia e funções
+      executivas, já utilizaram e abandonaram outros aplicativos por não manterem o uso e rejeitam alta
+      complexidade de configuração.” Versão B (DOC-C07-009, decisão ICP-01 / achado ICP-HYP-01, 15/08/2026):
+      “Profissional independente/solo brasileiro, aproximadamente 25–44 anos, multiprojeto, que perde
+      contexto, tem dificuldade recorrente para escolher próxima ação, já tentou ferramentas de produtividade
+      e controla/influencia a própria compra”, com ressalva explícita de que diagnóstico de TDAH NÃO é
+      critério de entrada. As duas versões divergem em faixa etária (25–35 × 25–44), gênero (homens ×
+      não especificado) e no papel da neurodivergência/diagnóstico como critério de ICP. Unidades com
+      público próprio já declarado: ECO-07 Estúdio — “Profissionais solo, autônomos e pequenos negócios
+      com trabalho, informação, clientes e projetos dispersos”; ECO-02 Blog — “Leitores interessados em
+      funções executivas, neurodivergência, trabalho, projetos e risco; especialistas entram como crítica
+      externa, não como endosso.”'
+    status: conflito
+    tipo_informacao: decisao
+    confianca: alta
+    eco_unit: TRANSVERSAL — conflito em ECO-01; ECO-07 e ECO-02 têm públicos próprios
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C07-009
+    - DOC-C02-039
+    evidencia: 'DOC-C05-001: “Homens, adultos, neurodivergentes, autônomos, na faixa dos 25–35 anos, recém-diagnosticados…”
+      | DOC-C07-009 (ICP-01, status DECIDED_FOR_TEST, confiança MÉDIA-ALTA): “Iniciar testes por profissionais
+      independentes multiprojeto, sem exigir diagnóstico de TDAH”; e “O que não é critério de entrada:
+      Diagnóstico de TDAH. Diagnóstico/autodeclaração deve ser variável opcional posterior, especialmente
+      porque dados de saúde são sensíveis e não são necessários para o core funcional.” | DOC-C05-001
+      (SSOT Executar Studio, item 02 Público): “Profissionais solo, autônomos e pequenos negócios com
+      trabalho, informação, clientes e projetos dispersos.” | DOC-C02-039 (BMC, Público/validação): “Leitores
+      interessados em funções executivas, neurodivergência, trabalho, projetos e risco.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Não há registro de qual definição prevalece nem data de supersessão. DOC-C07-009 é de 15/08/2026
+      e classifica o ICP como hipótese de classe E a validar; DOC-C05-001 não traz data própria de decisão.
+      Faltaria um ADR comercial ou nota de decisão datada.
+    proxima_acao: Decidir explicitamente qual ICP vale para o lançamento de 07/09 e arquivar a versão
+      superada com data e justificativa.
+  - field_id: '1.3'
+    title: Proposta de valor
+    description: O que torna esse produto a escolha óbvia frente a alternativas.
+    example: 'Ex: Único agente que mantém memória estruturada entre sessões sem configuração manual.'
+    origem: formulario_original
+    valor: 'Proposta de valor por unidade. ECO-01 App: “Criar uma situação em que a execução do que foi
+      planejado aconteça com o mínimo possível de carga administrativa e cognitiva sobre o usuário. O
+      sistema assume parte da estrutura, organização e priorização”; promessa: “Zero configuração, mínimo
+      de personalização, uso mínimo do app — cerca de 1–2 vezes por semana — e externalização cognitiva”;
+      mensagem de sustentação: “Você executa. O sistema sustenta a execução.”; headline canônica: “O app
+      de produtividade feito para você não usar.” Posicionamento resultante (DOC-C07-009): “Sistema de
+      execução para profissionais multiprojeto que transforma contexto em próxima ação e preserva o estado
+      do trabalho — neurocompatível por design, mas não apresentado como tratamento de TDAH.” ECO-07 Estúdio:
+      “Traga o problema. Em 7 dias, saia com um sistema funcionando”; “Menos tempo organizando a operação.
+      Mais clareza sobre o que fazer, onde encontrar e como repetir.” ECO-02/ECO-03: “Transformar Risco
+      Cognitivo em uma categoria editorial e investigável antes de conectá-la ao produto.” ECO-05 Infoprodutos:
+      “Livros digitais funcionam como produto de entrada e aplicação. Curso funciona como aplicação guiada.”
+      ECO-04 Físicos: “Neurobook = planejar e registrar → Timer = executar → Organização = reduzir decisões
+      cotidianas → Office Kit = sistema integrado.”'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: TRANSVERSAL — respostas distintas em ECO-01, ECO-07, ECO-02/03, ECO-05 e ECO-04
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C07-009
+    - DOC-C09-004
+    - DOC-C09-006
+    - DOC-C09-016
+    - DOC-C09-008
+    - DOC-C02-039
+    evidencia: 'DOC-C05-001 (Benefício e Promessa principal; Mensagem final): “O usuário executa. O sistema
+      sustenta a execução.”; Headline 01: “O app de produtividade feito para você não usar.”; Descrição
+      01: “Executar é um sistema de gestão de projetos orientado à execução que reduz configuração, organização
+      manual e decisões repetitivas para mostrar o que pode ser feito agora.” | DOC-C07-009 (campo positioning):
+      “Sistema de execução para profissionais multiprojeto que transforma contexto em próxima ação e preserva
+      o estado do trabalho.” | DOC-C09-004: “O aplicativo de produtividade feito para você usar menos.
+      O sistema sustenta a estrutura; o usuário executa.” | DOC-C09-006: “Traga o problema. Em 7 dias,
+      saia com um sistema funcionando.” | DOC-C02-039 (BMC, Proposta de valor): “Transformar Risco Cognitivo
+      em uma categoria editorial e investigável antes de conectá-la ao produto.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: ''
+    proxima_acao: ''
+  - field_id: '1.4'
+    title: Canais de aquisição
+    description: Como novos usuários vão descobrir o produto (orgânico, paid, parcerias, comunidade).
+    example: 'Ex: Conteúdo técnico + comunidade de early adopters + parcerias com ferramentas complementares.'
+    origem: formulario_original
+    valor: 'Arquitetura de canais em dois níveis (DOC-C05-001). OWNED: 01 executar.com/Blog (fonte canônica
+      do conteúdo); 02 Biblioteca Executar (indexação permanente, guias, referências, e-books); 03 e-mail/newsletter;
+      04 comunidade futura. DISTRIBUIÇÃO (plataformas alugadas/terceiras): YouTube (explicação + demonstração
+      + descoberta), Instagram (carrossel, visual, Reels), TikTok (descoberta, vídeos curtos), LinkedIn
+      (gestão, operações, risco, conteúdo técnico). Regra de produção “uma fonte, vários outputs”: questão
+      editorial → pesquisa → artigo canônico → diagrama/infográfico → vídeo principal → 2–4 shorts → carrossel
+      → post LinkedIn → newsletter → entrada na Biblioteca → trecho no e-book/curso → CTA de aprofundamento.
+      Canais comerciais: Hotmart (infoprodutos, com cadastro e checkout), afiliados (Barkley ×2 e Ana
+      Beatriz Barbosa Silva), loja própria, formulário visual do Estúdio. Aquisição do ECO-07: “Conteúdo
+      → Showroom → Formulário visual → Encontro → Projeto”. Operacionalmente, os canais estão registrados
+      como 10 chamadas CH-001…CH-010 com destino e estado (DOC-C08-004) e 10 rotas RT-001…RT-010 (DOC-C08-006).
+      Para ECO-02, o canal inaugural é o pacote de 18 ativos em 14 dias: 1 artigo, 1 newsletter, 1 vídeo
+      principal, 3 vídeos curtos, 2 carrosséis, 6 posts curtos, 1 infográfico, 1 checklist, 1 lead magnet
+      e 1 landing page.'
+    status: preenchido
+    tipo_informacao: decisao
+    confianca: alta
+    eco_unit: TRANSVERSAL
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C08-004
+    - DOC-C08-006
+    - DOC-C06-001
+    - DOC-C02-043
+    - DOC-C09-015
+    - DOC-C09-018
+    - DOC-C12-004
+    evidencia: 'DOC-C05-001 (Arquitetura das plataformas): “OWNED 01 executar.com / Blog — Fonte canônica
+      do conteúdo; OWNED 02 Biblioteca Executar; OWNED 03 E-mail / newsletter; DISTRIBUIÇÃO 01 YouTube;
+      02 Instagram; 03 TikTok; 04 LinkedIn”; e “Instagram, YouTube, TikTok e LinkedIn não são plataformas
+      proprietárias; são plataformas alugadas/terceiras.” | DOC-C05-001 (SSOT Studio, item 13 Aquisição):
+      “Conteúdo → Showroom → Formulário visual → Encontro → Projeto.” | DOC-C08-004: “CH-001 Experimentar
+      Executar → página do aplicativo”, “CH-003 Explorar a biblioteca”, “CH-007 Ver o livro → ligação
+      de afiliado”, “CH-010 Entrar na lista → formulário”. | DOC-C02-043: “Pacote: 1 artigo, 1 newsletter,
+      1 vídeo principal, 3 vídeos curtos, 2 carrosséis, 6 posts curtos, 1 infográfico, 1 checklist, 1
+      lead magnet e 1 landing page — 18 ativos principais.” | DOC-C09-018: “Núcleo inicial — Russell A.
+      Barkley · Vencendo o TDAH Adulto; Russell A. Barkley · Executive Functions; Ana Beatriz Barbosa
+      Silva · Mentes Inquietas.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Nenhum documento define mídia paga, verba por canal ou meta de tráfego. A aquisição paga só
+      aparece implicitamente, como pressuposto do guardrail de CAC em DOC-C07-009.
+    proxima_acao: Decidir se haverá mídia paga no lançamento de 07/09 e, em caso afirmativo, registrar
+      acquisition_source e campaign_id por canal — eventos já especificados na telemetria de DOC-C07-009.
+  - field_id: '1.5'
+    title: Métrica North Star
+    description: A métrica única que melhor representa sucesso do produto.
+    example: 'Ex: Número de sessões semanais com reuso de contexto salvo.'
+    origem: formulario_original
+    valor: 'Nenhum documento nomeia uma “métrica North Star”. O candidato canônico mais próximo é o VALUE_EVENT-01
+      da telemetria do EXECUTAR: “Projeto real → contexto interpretado → próxima ação válida → ação executada
+      → conclusão/evidência registrada” — o evento que define valor entregue e que governa ativação, PMF
+      e coortes W1/W2/W4/W8. Os endpoints de eficácia funcional associados são time_to_next_action, resume_latency,
+      completion_rate, context_reconstruction, execution_cycles_per_week e abandonment_rate. Para ECO-02,
+      a meta declarada é de output, não de outcome: “publicar 18 ativos em 14 dias, com artigo dentro
+      de 1.200–1.800 palavras”, capturando baseline de visualizações, retenção, salvamentos, inscrições
+      e downloads — com a regra explícita de “não estabelecer ainda metas arbitrárias de seguidores ou
+      leads sem baseline”. O BMC do ECO-02 registra literalmente “% geral não informado” e “métricas não
+      informadas permanecem desconhecidas”.'
+    status: parcial
+    tipo_informacao: inferencia
+    confianca: media
+    eco_unit: ECO-01 (candidato VALUE_EVENT-01) e ECO-02 (meta de output)
+    documento_ids:
+    - DOC-C07-009
+    - DOC-C02-043
+    - DOC-C02-039
+    - DOC-C16-003
+    - DOC-C16-006
+    evidencia: 'DOC-C07-009 (objeto telemetry): “value_event_01: Projeto real → contexto interpretado
+      → próxima ação válida → ação executada → conclusão/evidência registrada”; “functional_efficacy_endpoints:
+      time_to_next_action, resume_latency, completion_rate, context_reconstruction, execution_cycles_per_week,
+      abandonment_rate.” | DOC-C02-043 (Objetivo SMART da primeira fase): “Mensurável: publicar 18 ativos
+      em 14 dias, com artigo dentro de 1.200–1.800 palavras”; “Não estabelecer ainda metas arbitrárias
+      de seguidores ou leads sem baseline.” | DOC-C02-039 (rodapé do BMC): “métricas não informadas permanecem
+      desconhecidas”. | DOC-C16-003 (MED-001) lista apenas o que verificar (chamada→destino, formulário→recebimento,
+      download→arquivo), sem métrica-alvo.'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Falta a eleição formal de UMA métrica North Star com definição, fórmula, janela de medição
+      e meta. O artefato estaria num documento de métricas/analytics ou num ADR de produto — inexistente
+      no corpus.
+    proxima_acao: Eleger “VALUE_EVENT-01 concluídos por usuário ativo por semana” como NSM candidata e
+      fixar baseline após o piloto de ≥40 usuários previsto em PMF-01.
+  - field_id: '1.6'
+    title: Métricas guardrail
+    description: Métricas que não podem degradar enquanto a North Star sobe.
+    example: 'Ex: Latência de resposta, taxa de erro em produção.'
+    origem: formulario_original
+    valor: 'Guardrails existentes, por domínio. (a) Econômico — CAC-01: TARGET-CAC provisório ≤ R$70 e
+      alerta/limite de aproximadamente R$95 até existir CAC observado. (b) Regulatório e de comunicação
+      — CLAIM-01, PROD-14 e PROD-15: claims proibidos hoje são “Reduz sintomas de TDAH”, “Melhora função
+      executiva clinicamente”, “Trata TDAH”, “Diagnostica ou identifica TDAH”, “Substitui terapia, tratamento
+      ou medicação” e “Cientificamente comprovado para TDAH”; e é bloqueado qualquer uso do produto como
+      diagnóstico, substituição profissional ou inferência clínica. (c) Gate de PMF — PMF-01: só declarar
+      PMF com convergência de VALUE_EVENT-01, coortes W1/W2/W4/W8, pagamento/renovação e pesquisa de dependência,
+      com heurística n ≥ 40 qualificados e > 40% “muito desapontados”. (d) Operacional de lançamento:
+      “Broken links = 0”, “backlog crítico = 0”, “não existe entrega crítica aguardando produção”. (e)
+      Epistemológico — invariantes: “original ≠ extração ≠ evidência ≠ decisão · candidate ≠ verified
+      · benchmark ≠ dado do EXECUTAR · modelo econômico ≠ unit economics observado · literatura externa
+      ≠ eficácia do EXECUTAR · similaridade ≠ suporte factual”.'
+    status: preenchido
+    tipo_informacao: decisao
+    confianca: alta
+    eco_unit: TRANSVERSAL — econômico e de claims em ECO-01; operacional no GTM 07/09
+    documento_ids:
+    - DOC-C07-009
+    - DOC-C06-001
+    - DOC-C08-007
+    evidencia: 'DOC-C07-009 (CAC-01): “Usar TARGET-CAC provisório ≤ R$70 e alerta/limite de aproximadamente
+      R$95 até existir CAC observado.” | DOC-C07-009 (claims_policy.prohibited_now): lista literal dos
+      seis claims proibidos. | DOC-C07-009 (Invariantes): “modelo econômico ≠ unit economics observado”.
+      | DOC-C06-001 (D11, DoD do dia): “Broken links = 0; fluxo de conversão testado”; D12: “Tudo agendado;
+      backlog crítico = 0; GTM READY.” | DOC-C08-007: “não existe entrega crítica aguardando produção.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Não há guardrail técnico de produto nesta área (taxa de erro, latência, custo de IA por usuário).
+      O evento variable_ai_cost é coletado na especificação de telemetria, mas sem limiar definido.
+    proxima_acao: Definir limite para variable_ai_cost por usuário ativo, já que o evento está previsto
+      mas não tem teto declarado.
+  - field_id: '1.7'
+    title: CAC (custo de aquisição)
+    description: Custo estimado para adquirir um cliente pagante.
+    example: 'Ex: A definir após primeiro ciclo de aquisição paga.'
+    origem: formulario_original
+    valor: 'Não existe CAC observado. Existe apenas guardrail modelado: TARGET-CAC provisório ≤ R$70 (alvo
+      conservador) e alerta/limite de aproximadamente R$95 (cenário-base); e CAC máximo por cenário para
+      manter LTV:CAC = 3 em R$141 (otimista), R$94 (base) e R$71 (conservador). O próprio documento fixa
+      a regra de cálculo e proíbe substitutos: “CAC observado = gasto atribuível / novos clientes pagantes.
+      CPI, CPM, clique e cadastro não substituem CAC.” Classe epistêmica E (inferido), status DECIDED_AS_GUARDRAIL,
+      confiança MÉDIA na fonte.'
+    status: parcial
+    tipo_informacao: hipotese
+    confianca: media
+    eco_unit: ECO-01
+    documento_ids:
+    - DOC-C07-009
+    evidencia: 'DOC-C07-009 (bloco “CAC guardrail”): “≤ R$70 alvo conservador; ≈ R$95 alerta / cenário-base.
+      CAC observado = gasto atribuível / novos clientes pagantes. CPI, CPM, clique e cadastro não substituem
+      CAC.” | Achado CAC-HYP-01 (epistemic_class E, status MODEL_GUARDRAIL): “Guardrail econômico; CAC
+      observado só existe após campanha e aquisição pagante.” | Gap registrado: {gap: CAC, status: “MODELO
+      + GUARDRAIL”, closed: false, remaining: “Campanhas e clientes pagantes.”}'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Falta o CAC real. Não há, em nenhum dos 214 arquivos, campanha paga executada, cliente pagante
+      registrado ou tabela de gasto por canal. O dado nasceria dos eventos acquisition_source, campaign_id
+      e paid_at do warehouse de telemetria — já especificados, ainda não instrumentados.
+    proxima_acao: Não preencher com número. Instrumentar acquisition_source/campaign_id/paid_at antes
+      da primeira campanha paga e só então calcular CAC observado.
+  - field_id: '1.8'
+    title: LTV (valor do tempo de vida)
+    description: Valor estimado que um cliente gera ao longo do relacionamento.
+    example: 'Ex: A definir com base em churn projetado.'
+    origem: formulario_original
+    valor: 'Não existe LTV observado. Existe apenas LTV modelado sob premissas declaradas como classe
+      E: ARPU mensal de R$49,90 e margem bruta assumida de 85%; cenário otimista com churn mensal de 10%
+      → LTV R$424; cenário base com churn de 15% → LTV R$282,77; cenário conservador com churn de 20%
+      → LTV R$212. O documento instrui explicitamente: “Não persistir como LTV factual. Substituir por
+      cohorts LTV_30/60/90/180/365.”'
+    status: parcial
+    tipo_informacao: hipotese
+    confianca: media
+    eco_unit: ECO-01
+    documento_ids:
+    - DOC-C07-009
+    evidencia: 'DOC-C07-009 (unit_economics, status MODEL_HYPOTHESIS_NOT_OBSERVED): “arpu_monthly_brl:
+      49.9; gross_margin_assumption: 0.85; scenarios: optimistic churn 0.10 → ltv 424; base churn 0.15
+      → ltv 282.77; conservative churn 0.20 → ltv 212.” | Achado LTV-HYP-01: “LTV_MODEL_BASE ≈ R$282,77
+      sob ARPU R$49,90, margem bruta 85% e churn mensal 15%. […] Não persistir como LTV factual.” | Gap
+      registrado: {gap: LTV, status: “MODELO HIPOTÉTICO”, closed: false, remaining: “Retenção, churn e
+      margem reais.”}'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta LTV factual: não há coorte real, churn observado nem pagamento registrado. O dado nasceria
+      das janelas LTV_30/60/90/180/365 do warehouse de telemetria, especificadas mas não populadas.'
+    proxima_acao: Não preencher com número. Rodar as coortes LTV_30/60/90 após o primeiro piloto pagante
+      e substituir o modelo.
+  - field_id: '1.9'
+    title: Margem por unidade/usuário
+    description: Custo variável (infra, API/tokens) por usuário ativo vs. receita.
+    example: 'Ex: Custo de API de IA por usuário/mês vs. preço do plano.'
+    origem: formulario_original
+    valor: 'Há regra de margem, não margem observada, e ela difere por unidade. ECO-01 App: margem bruta
+      de 85% é premissa (classe E) do modelo econômico, não medição. ECO-05 Infoprodutos: a margem deve
+      nascer da cadeia “valor percebido → benchmark → posicionamento → taxa do canal → CAC → margem de
+      contribuição”, com taxa Hotmart projetada por prudência em 9,9% + R$2,49 (a Central de Ajuda ainda
+      mostrava 9,9% + R$1,00, com mudança anunciada para 21/09/2026). ECO-04 Produtos físicos: a margem
+      deve nascer do custo variável total Y, nunca do preço de fornecedor — a planilha de landed cost
+      do Timer 45 parte de R$39 de fornecedor e mantém “preencher” em frete internacional, impostos/importação,
+      frete/localização, embalagem Executar e etiqueta/manual/QR; fórmulas registradas: “Margem bruta
+      = (Preço − Custo) ÷ Preço” e “Markup = Preço ÷ Custo”. Política de margem declarada como a testar,
+      sem percentual fixado: “Eu não fixaria ainda ‘o Timer precisa dar 60%’ ou ‘o Neurobook precisa dar
+      50%’”, com estratégia diferenciada por classe (Timer = produto comparável, margem disciplinada;
+      Neurobook = proprietário, maior liberdade de preço; Office Kit = bundle, maximizar margem absoluta
+      e ticket, não percentual).'
+    status: parcial
+    tipo_informacao: decisao
+    confianca: media
+    eco_unit: TRANSVERSAL — ECO-01 (premissa 85%), ECO-05 (taxa de canal), ECO-04 (landed cost incompleto)
+    documento_ids:
+    - DOC-C07-009
+    - DOC-C05-001
+    - DOC-C09-008
+    evidencia: 'DOC-C07-009: “gross_margin_assumption: 0.85”, dentro de unit_economics com status MODEL_HYPOTHESIS_NOT_OBSERVED.
+      | DOC-C05-001 (Hotmart e margem): “a página comercial da Hotmart já anuncia 9,9% + R$2,49. Eu faria
+      suas projeções usando 9,9% + R$2,49, por prudência”; e “valor percebido → benchmark → posicionamento
+      → taxa do canal → CAC → margem de contribuição.” | DOC-C05-001 (Unit Economics — produtos físicos):
+      tabela do Timer 45 com “Preço do fornecedor R$39” e cinco linhas “preencher”; “O preço deve nascer
+      de Y, e não dos R$39.” | DOC-C09-008: “Timer 45 | ferramenta funcional | validar custo e preço”.'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Faltam os custos posto (landed cost) reais dos SKUs físicos — as linhas estão literalmente
+      marcadas “preencher” — e falta a margem observada por usuário do app (custo de infraestrutura +
+      variable_ai_cost por usuário ativo). Estaria numa planilha de custo de produto e num relatório de
+      custo por usuário.
+    proxima_acao: Cotar frete, impostos e embalagem dos quatro SKUs para fechar o Y do Timer 45 antes
+      de publicar preço na loja.
+  - field_id: '1.10'
+    title: Ponto de equilíbrio (breakeven)
+    description: Quantos clientes/receita necessários para cobrir custos fixos.
+    example: 'Ex: N clientes no plano X cobrem a infraestrutura base mensal.'
+    origem: formulario_original
+    valor: null
+    status: lacuna
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: TRANSVERSAL
+    documento_ids:
+    - DOC-C04-001
+    - DOC-C07-009
+    - DOC-C05-001
+    evidencia: 'Busca literal por “break-even”, “breakeven” e “ponto de equilíbrio” em todos os 214 arquivos
+      retorna um único hit: DOC-C04-001 (Cronograma.md), que é o cronograma do próprio formulário e apenas
+      lista o nome do campo — “1.10 | Ponto de equilíbrio (breakeven) | formulário”. DOC-C07-009, o documento
+      econômico mais avançado do corpus, cobre preço, CAC, LTV e PMF, mas não calcula breakeven, e classifica
+      todo o bloco de unit economics como MODEL_HYPOTHESIS_NOT_OBSERVED. DOC-C05-001 discute margem, markup
+      e capital de giro, mas nunca ponto de equilíbrio.'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta qualquer cálculo de ponto de equilíbrio: não há custo fixo mensal declarado (infraestrutura,
+      ferramentas, Hotmart, domínios), não há meta de assinantes pagantes e não há receita atual registrada.
+      O dado estaria numa planilha de custos fixos + modelo de receita, ou num P&L simplificado — inexistentes
+      no corpus.'
+    proxima_acao: Levantar o custo fixo mensal real (Vercel, Neon, Clerk, Sentry, domínios, Hotmart) e
+      dividi-lo pela margem de contribuição por assinante para obter o número mínimo de assinantes; não
+      estimar antes desse levantamento.
+  - field_id: '1.11'
+    title: Teto de gasto de infraestrutura
+    description: Limite mensal aprovado por serviço (hosting, banco, API de IA).
+    example: 'Ex: Vercel $X, Supabase $X, Anthropic API $X — tetos configurados no console de cada provedor.'
+    origem: formulario_original
+    valor: null
+    status: lacuna
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: ECO-01 (e ECO-02, site/CMS)
+    documento_ids:
+    - DOC-C04-002
+    - DOC-C02-017
+    - DOC-C07-009
+    evidencia: A infraestrutura está nomeada em vários documentos — DOC-C04-002 cita monorepo com bun,
+      apps/app em Next.js, apps/mobile em Expo 57, Clerk, Sentry, Vercel Preview, “AWS/Aurora” e app local-first
+      via localStorage; DOC-C02-017 cita “Vercel Payload Website Starter + Next.js + Payload CMS + PostgreSQL/Neon
+      + Vercel Blob”, mais “Vercel Web Analytics + Speed Insights”. Nenhum desses documentos, nem DOC-C07-009,
+      declara valor monetário de gasto de infraestrutura ou teto. Busca por “teto de gasto”, “custo de
+      infra”, “orçamento de infra”, “free tier” e “plano gratuito” em todo o corpus não retorna ocorrências.
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta o teto de gasto: nenhum documento traz fatura, plano contratado (Hobby/Pro), limite
+      de billing ou alerta de custo de qualquer fornecedor. O dado estaria nos consoles/faturas de Vercel,
+      Neon, Clerk e Sentry, ou num documento de orçamento de infraestrutura.'
+    proxima_acao: Exportar o custo mensal atual de cada fornecedor e definir um teto explícito com alerta
+      de billing antes do lançamento de 07/09.
+  - field_id: '1.12'
+    title: Gatilhos de upgrade de infra
+    description: Condição objetiva que dispara upgrade de plano/tier.
+    example: 'Ex: Uso de API acima de 80% do teto por 3 dias consecutivos.'
+    origem: formulario_original
+    valor: null
+    status: lacuna
+    tipo_informacao: fato_interno
+    confianca: media
+    eco_unit: ECO-01
+    documento_ids:
+    - DOC-C04-002
+    - DOC-C07-009
+    evidencia: 'Não há gatilho de upgrade de infraestrutura em nenhum documento lido. O único enunciado
+      adjacente é uma decisão de sequenciamento arquitetural, não um gatilho de escala: DOC-C04-002 registra
+      “Integrar o núcleo ao Vercel AI SDK, MCP authority, Clerk e UnitOfWork local antes de Aurora” e
+      “App é local-first: EstadoOperacional hidrata de localStorage via chaveOrganizacao + restaurarEstado,
+      sincroniza com servidor só opcionalmente (remotePersistenceAvailable)”. DOC-C07-009 prevê coletar
+      variable_ai_cost, mas não define limiar de disparo.'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta o gatilho: não existe métrica-limiar (usuários ativos, requisições, GB de banco, custo
+      mensal, p95 de latência) associada a uma ação de upgrade. O dado estaria num runbook de capacidade/escalabilidade
+      ou num ADR de infraestrutura.'
+    proxima_acao: Definir dois ou três limiares objetivos (custo mensal, conexões de banco, p95) que disparem
+      a migração de local-first para persistência remota/Aurora, e registrá-los como ADR.
+  - field_id: '1.13'
+    title: Análise competitiva
+    description: Concorrentes diretos/indiretos, onde diferenciamos e onde apenas empatamos.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: product-management / marketing / sales
+    skill: competitive-brief / competitive-intelligence
+    valor: 'Há análise competitiva em três frentes, todas com preços e fontes registrados. (a) ECO-05
+      Infoprodutos — benchmark de e-books: ofertas de TDAH observadas a R$19,90, R$27, R$29,90 e R$37,90,
+      e um e-book comercial da Artmed de Barkley a R$97,28; faixas de posicionamento recomendadas de R$19,90–29,90
+      (PDF simples) até R$99–129 (bundle de 3 e-books). Benchmark de cursos: curso introdutório 12h/16
+      aulas a R$89,90; curso neurodivergência/trabalho 15+ aulas a R$97; escola ampla com 200+ aulas a
+      R$197; programa Ana Beatriz a ~R$196; programa guiado de 7 encontros a R$197; programa premium “TDAH
+      2.0” (90 dias, 75 aulas, app/IA) a R$1.997. (b) ECO-07 Estúdio — benchmark de consultoria: CCN a
+      R$300/h com implantação conduzida; Produtive.Me a R$2.500 por sprint de mapeamento de 15 dias e
+      R$4.000 por 30 dias, sem implementação; benchmark de Work OS usado para decidir vender “transformação
+      operacional”, não “consultoria de Notion”. (c) ECO-03 Framework — prior art: ICF/CIF e WHODAS 2.0
+      da OMS, Roadmap to Self-Empowerment for Autistic Adults, My Sensory Experiences Tool, ICF Core Sets
+      para autismo e TDAH, “cognitive risk” já existente em ERM, publicação da APM de 26/08/2026 e pesquisa
+      da APM sobre neurodiversidade em project management. Guardrail explícito: “‘Não encontramos’ não
+      significa ‘não existe’.”'
+    status: preenchido
+    tipo_informacao: evidencia_externa
+    confianca: alta
+    eco_unit: TRANSVERSAL — forte em ECO-05, ECO-07 e ECO-03; fraco em ECO-01
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C01-005
+    - DOC-C02-031
+    - DOC-C02-022
+    - DOC-C07-009
+    evidencia: 'DOC-C05-001 (Benchmark — e-books): “Há ofertas de TDAH por R$ 19,90, R$ 27, R$ 29,90 e
+      R$ 37,90; um e-book comercial da Artmed de Barkley, muito mais extenso e editorialmente tradicional,
+      está em R$ 97,28.” (Benchmark — curso): tabela com seis ofertas de R$89,90 a R$1.997. (Serviços):
+      “a CCN mantém consultoria a R$300/h […]; a Produtive.Me cobra R$2.500 por um sprint de mapeamento
+      de 15 dias e R$4.000 por 30 dias, sem implementação.” | DOC-C01-005: “O framework mais próximo,
+      em termos de estrutura geral, é a ICF/CIF da OMS”; “Há também o WHODAS 2.0, da OMS”. | DOC-C02-031
+      (item 4, GUARDRAIL): “‘Não encontramos’ não significa ‘não existe’.” | DOC-C02-022 (RC-014): “A
+      APM publicou em 26/08/2026 conteúdo dizendo que projetos também podem falhar cognitivamente.” |
+      DOC-C07-009 (themes_qt): tema “Benchmark de apps concorrentes” com apenas 3 registros.'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'A análise competitiva do ECO-01 é a mais fraca: apps concorrentes (Notion, ClickUp, Trello,
+      Todoist e similares) aparecem apenas como ferramentas que o cliente já usa, sem comparativo de features,
+      preço ou posicionamento — e a base de evidências tem só 3 registros no tema “Benchmark de apps concorrentes”.'
+    proxima_acao: Produzir um comparativo direto de apps concorrentes com preço, modelo de assinatura
+      e tratamento de “próxima ação”, para sustentar o posicionamento de PRICE-01.
+  - field_id: '1.14'
+    title: Dados e warehouse
+    description: Onde vivem os dados de negócio (warehouse, planilha) e como são consultados/expostos
+      hoje.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: data
+    skill: analyze / explore-data / sql-queries / build-dashboard
+    valor: 'Existe arquitetura de dados documentada em cinco camadas. (a) Base de evidências: base_evidencias_tdah_adulto_WAREHOUSE.json,
+      que encapsula um CSV — file_name base_evidencias_tdah_adulto_WAREHOUSE.csv, sha256 57f2a101…cffdbf,
+      129.719 bytes, 30 colunas, 240 registros. (b) Canônico e schema: “Google Drive / Supabase-2026-TDHA”,
+      schema_version “DATA-SCHEMA-002 / base 1.1”; estado atual com 31 sources, 248 RAW, 116 knowledge,
+      161 evidence candidates, 0 strict VERIFIED, 240 evidências legadas, 694 perguntas de framework e
+      22 decisões operacionais. Gate factual definido: “record_status=VERIFIED · classe A/B/C · source_verified
+      · extraction_verified · context_verified · proveniência · numeric_verified para measurement”. (c)
+      Schema de domínio: SCHEMA_MATRIZ_GESTAO_TDAH_V1 (CSV + YAML), 18 campos, origem DATA-ADHD-PM-001/DRIVE-PROD-002,
+      estado documental “existente + registrado + verificado; não preenchido; não aprovado como schema
+      final”. (d) Telemetria de produto especificada e não instrumentada: acquisition_source, campaign_id,
+      install_or_signup, activated_at, first_value_at, paid_at, plan, gross_revenue, refund, variable_ai_cost,
+      cancelled_at, renewed_at, last_value_event_at; coortes W1/W2/W4/W8; janelas LTV_30/60/90/180/365.
+      (e) Observabilidade editorial: Vercel Web Analytics + Speed Insights, com decisão RC-054 de priorizar
+      métricas agregadas em vez de identificação individual.'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: TRANSVERSAL
+    documento_ids:
+    - DOC-C07-007
+    - DOC-C07-009
+    - DOC-C07-005
+    - DOC-C07-006
+    - DOC-C02-017
+    evidencia: 'DOC-C07-007 (cabeçalho do JSON): “format: csv · file_name: base_evidencias_tdah_adulto_WAREHOUSE.csv
+      · sha256: 57f2a1015cf04e67fba04178e038f8d31f617d6e0ec050711280c8b048cffdbf · size_bytes: 129719
+      · columns: 30 · row_count: 240”. | DOC-C07-009 (status): “canonical: Google Drive / Supabase-2026-TDHA
+      · schema_version: DATA-SCHEMA-002 / base 1.1”; (Estado atual): “31 sources · 248 RAW · 116 knowledge
+      · 161 evidence candidates · 0 strict verified · 22 decisões operacionais.” | DOC-C07-006: “estado_documental:
+      existente + registrado + verificado; não preenchido; não aprovado como schema final”. | DOC-C02-017
+      (OBSERVABILIDADE): “Vercel Web Analytics + Speed Insights”; RC-054: “Inicialmente priorizar métricas
+      agregadas, não identificação…”.'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'O warehouse cobre evidência científica, não dados de produto: são 0 registros strict VERIFIED
+      e nenhum evento de telemetria do app foi coletado — a lista de required_events é especificação,
+      não dado.'
+    proxima_acao: Instrumentar os 13 required_events antes do lançamento, para que CAC, LTV e PMF possam
+      migrar de modelo para observação.
+  - field_id: '1.15'
+    title: Cadência financeira recorrente
+    description: Frequência e formato do fechamento financeiro (P&L, variância orçado vs. realizado).
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: finance
+    skill: financial-statements / variance-analysis / close-management
+    valor: null
+    status: lacuna
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: TRANSVERSAL
+    documento_ids:
+    - DOC-C04-001
+    - DOC-C06-001
+    - DOC-C07-009
+    - DOC-C07-010
+    evidencia: 'Busca por “DRE”, “P&L”, “demonstrativo de resultado”, “variância”, “fluxo de caixa” e
+      “MRR” em todo o corpus retorna apenas: DOC-C04-001 (Cronograma.md), que só lista o nome do campo
+      “1.15 | Cadência financeira recorrente (P&L/variância) | 🔌 finance/financial-statements, variance-analysis”,
+      e ocorrências em outro sentido (variância estatística, gates operacionais). Existe cadência OPERACIONAL
+      detalhada — DOC-C06-001 define templates diário e semanal, WEEK-01/WEEK-02, gates G0–G9, DoD diário
+      e somatório de horas por value stream — mas nenhuma cadência FINANCEIRA: não há fechamento mensal,
+      revisão de receita e custo, nem análise de variância orçado × realizado.'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta a rotina financeira recorrente: quem fecha, com que periodicidade, contra qual orçamento
+      e em qual artefato. O dado estaria num P&L/planilha financeira mensal ou num runbook de fechamento
+      — inexistentes no corpus.'
+    proxima_acao: Instituir um fechamento mensal simples (receita por canal, custo fixo, custo variável
+      de IA/infra, margem) assim que houver a primeira venda; hoje não há receita registrada que justifique
+      análise de variância.
+  - field_id: '1.16'
+    title: Pipeline e forecast de vendas
+    description: Como o pipeline comercial é acompanhado e projetado (se já existe motion de vendas).
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: sales
+    skill: forecast / pipeline-review
+    valor: 'Há pipeline definido para ECO-07 (Estúdio) e nenhum forecast quantificado em nenhuma unidade.
+      Pipeline do Estúdio: “Conteúdo → problema reconhecido → showroom demonstra solução concreta → formulário
+      visual de 5 min → seleção de fit → D1 entender + cocriar → D2–D3 estruturar + construir → D4 demonstrar
+      protótipo → D5 Studio + teste assíncrono → D6 implementar + onboarding → D7 validar → 10/20/30 manutenção
+      → caso + evidência → novo projeto / indicação / expansão”. Capacidade declarada: 1 cliente por semana,
+      1 projeto, 1 entrega principal, 7 dias. Escada comercial que funciona como estágio de pipeline:
+      Piloto 01–03 a R$0 (para construir processo, métricas e portfólio) → Founding 04–06 a R$700 (primeiros
+      clientes pagantes) → Regular Workflow a partir de R$1.490, Automação/Agente a partir de R$1.990,
+      App/Sistema a partir de R$2.490. A qualificação é capturada no FORM-001, que inclui “prazo desejado”
+      e “faixa de investimento” (Até R$1.500 · R$1.500–2.500 · R$2.500–5.000 · Ainda não sei), além da
+      tabela de fit “É para / Não é para”.'
+    status: parcial
+    tipo_informacao: decisao
+    confianca: media
+    eco_unit: ECO-07 (pipeline definido); forecast ausente em todas as unidades
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C12-003
+    - DOC-C09-006
+    - DOC-C11-010
+    evidencia: 'DOC-C05-001 (Cadeia única de valor final): “Conteúdo ↓ problema reconhecido ↓ showroom
+      demonstra solução concreta ↓ formulário visual de 5 min ↓ seleção de fit ↓ D1 · entender + cocriar
+      […] ↓ caso + evidência ↓ novo projeto / indicação / expansão.” (Escada recomendada): “Piloto 01–03
+      · R$0; Founding 04–06 · R$700; Regular Workflow · desde R$1.490; Regular Automação/Agente · desde
+      R$1.990; Regular App/Sistema · desde R$2.490.” | DOC-C09-006 (Modelo): “1 cliente por semana · 1
+      projeto · 1 entrega principal · 7 dias.” | DOC-C12-003: “10 · Faixa de investimento imaginada: Até
+      R$1.500 · R$1.500–2.500 · R$2.500–5.000 · Ainda não sei.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta o forecast: não há número esperado de leads, taxa de conversão por estágio, ticket
+      médio projetado nem receita prevista por mês. E não há pipeline algum para ECO-01 (assinaturas)
+      nem ECO-05 (infoprodutos). O dado estaria num CRM ou planilha de forecast — inexistentes no corpus.'
+    proxima_acao: Instrumentar o FORM-001 para contar leads por estágio a partir de 07/09 e só então projetar
+      conversão, dado que a capacidade está travada em 1 cliente por semana.
+  field_count: 16
+  area_status: em_andamento
+  fonte_preenchimento: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+    em 31/08/2026
+- area_id: 2
+  area_name: PRODUTO
+  area_description: PRD, requisitos funcionais e jornada do usuário — a mesma informação em três granularidades
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - OFF-040
+  - REQ-052
+  fields:
+  - field_id: '2.1'
+    title: Nome do produto/feature
+    description: Nome de referência usado em toda a documentação.
+    example: 'Ex: EXECUTA Journal'
+    origem: formulario_original
+    valor: 'Nomes canônicos por unidade. ECO-01 — produto: EXECUTAR (grafado “Executar”), com três features
+      de destaque: Feature 01 Agente 007 / Autogestão adaptativa; Feature 02 Scanner / QR / Atalhos; Feature
+      03 Mapa-OS / Analógico / Prisma. No código, a identidade unificada chama-se “tokens exec.*” e as
+      rotas entregues são /scanner e /mapa-os (formatos ?format=prisma, A4 retrato, e ?format=tripe, A4
+      paisagem). ECO-07: “Executar Studio”, com três famílias — 01 Processos & Workflows, 02 Automações
+      & Agentes, 03 Apps & Sistemas de Trabalho. ECO-02/ECO-03: marca editorial “Risco Cognitivo” (publicação
+      riscocognitivo.org, canais @riscocognitivo) e framework técnico provisório “Cognitive Execution
+      Risk Management — CERM”. ECO-05: curso “Gerenciando o TDAH Adulto” (I0) e e-books I1 “Aplicando
+      o TDAH Adulto — Tutorial Prático”, I2 “TDAH Risk Management na Prática”, I3 “Gerenciando o TDAH
+      Adulto / 360”. ECO-04: P0 “Executar Office Kit” (hero product), P1 “Executar Neurobook”, P2 “Timer
+      45”, P3 “Kit de Organização Física”. ECO-02: “Biblioteca Executar”.'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: TRANSVERSAL — nomes distintos por unidade
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C04-002
+    - DOC-C09-004
+    - DOC-C09-011
+    - DOC-C09-013
+    - DOC-C09-008
+    - DOC-C01-006
+    - DOC-C02-016
+    evidencia: 'DOC-C05-001: “Feature 01 — Agente 007 / Autogestão adaptativa”, “Feature 02 — Scanner
+      / QR / Atalhos”, “Feature 03 — Mapa-OS / Analógico / Prisma”; Master Index dos infoprodutos I0–I4;
+      Master Index — Produtos Físicos P0–P4. | DOC-C04-002: “PR #77 — feat(design-system): identidade
+      única de tokens exec.*”; rotas “apps/app/app/(authenticated)/scanner/” e “/mapa-os?format=prisma
+      (padrão, A4 retrato) e /mapa-os?format=tripe (A4 paisagem)”. | DOC-C01-006: “Risco Cognitivo → é
+      a marca editorial; riscocognitivo.org → é a publicação/site; @riscocognitivo → são os canais da
+      publicação.” | DOC-C02-016: “TÍTULO: Cognitive Execution Risk Management — v0.1”, com guardrail
+      “Não reivindicar criação de ‘Cognitive Risk Management’”.'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: ''
+    proxima_acao: ''
+  - field_id: '2.2'
+    title: Contexto do PRD
+    description: Situação atual e por que este produto/feature é necessário agora.
+    example: 'Ex: Publicação editorial hoje exige edição manual de código; produto elimina essa fricção.'
+    origem: formulario_original
+    valor: 'Não existe PRD no corpus. O que existe é a base que antecede e alimenta um PRD, mais referências
+      a PRDs que estão fora do conjunto documental. (a) Base: DATA-ADHD-PM-001 — “Matriz paralela Gestão
+      de Projetos → exigência humana → vulnerabilidade associada ao TDAH → impacto operacional → compensação
+      sistêmica → decisão de produto”, versão 1.0, de 19/08/2026, owner “Não determinado”, com o Next
+      01 explícito de “transformar a matriz em requisitos funcionais e princípios de design verificáveis”.
+      (b) 22 decisões operacionais governadas (PROD-01…PROD-15 mais ICP-01, POSITION-01, PRICE-01, CAC-01,
+      PMF-01, EFFICACY-01 e CLAIM-01), que funcionam como o contexto decisório que um PRD consumiria.
+      (c) Referências a artefatos ausentes: DOC-C04-002 cita “PRD-006/UX-004” como critério de UX do Scanner
+      e “OQ-008 do FRD original do Scanner” — nem o PRD-006 nem o FRD constam do inventário de 214 arquivos.'
+    status: parcial
+    tipo_informacao: fato_interno
+    confianca: media
+    eco_unit: ECO-01
+    documento_ids:
+    - DOC-C07-010
+    - DOC-C07-009
+    - DOC-C04-002
+    - DOC-C07-002
+    evidencia: 'DOC-C07-010: “ID DATA-ADHD-PM-001 · Tipo Pesquisa — Matriz de evidências e implicações
+      de produto · Owner Não determinado · Versão 1.0 · Data 19/08/2026”; “Next 01 Transformar a matriz
+      abaixo em requisitos funcionais e princípios de design verificáveis.” | DOC-C04-002: “Câmera compacta
+      por padrão (PRD-006/UX-004: velocidade de captura antes de prévia grande)” e “Offline (OQ-008 do
+      FRD original do Scanner) segue fora de escopo, nunca implementado.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Falta o PRD propriamente dito. Os documentos citam PRD-006 e um FRD do Scanner que não estão
+      entre os 214 arquivos — provavelmente vivem no repositório Sas-Executar/Sas-Executar ou no Drive,
+      não no conjunto entregue.
+    proxima_acao: Localizar PRD-006 e o FRD do Scanner no repositório/Drive e incorporá-los ao registro
+      documental, ou declará-los inexistentes e escrever o PRD a partir de DATA-ADHD-PM-001.
+  - field_id: '2.3'
+    title: Objetivos (goals)
+    description: O que o produto DEVE alcançar, de forma verificável.
+    example: 'Ex: Permitir publicar um artigo do celular sem tocar em código.'
+    origem: formulario_original
+    valor: 'Objetivos por unidade. ECO-01 App: “transferir carga executiva evitável do operador para o
+      sistema, preservando decisão e autonomia do usuário”; e “criar uma situação em que a execução do
+      que foi planejado aconteça com o mínimo possível de carga administrativa e cognitiva”. ECO-03 Framework:
+      “Investigar riscos cognitivos endógenos como vulnerabilidades capazes de aumentar a probabilidade
+      de desvio entre intenção e execução”, com cinco componentes provisórios — Cognitive Risk Profile,
+      Cognitive Demand Map, Cognitive Risk Register, Compensating Controls e Execution Evidence. ECO-02
+      Blog: “Publicar o artigo fundador e iniciar a campanha inaugural de 14 dias sem transformar a campanha
+      em lançamento de produto”; objetivo SMART: “lançar Risco Cognitivo e validar interesse pela tese”.
+      GTM 07/09 (transversal): 60h comprometidas + 12h de reserva em 12 dias produtivos (83% da capacidade),
+      com tudo “produzido, integrado, configurado e agendado” até 05/09. ECO-05 Curso: quatro módulos
+      Entender → Estruturar → Executar → Evoluir. ECO-02 site/CMS: autonomia editorial total, sem tocar
+      em código.'
+    status: preenchido
+    tipo_informacao: decisao
+    confianca: alta
+    eco_unit: TRANSVERSAL — objetivos distintos por unidade
+    documento_ids:
+    - DOC-C07-002
+    - DOC-C02-016
+    - DOC-C02-014
+    - DOC-C06-001
+    - DOC-C09-013
+    - DOC-C02-017
+    evidencia: 'DOC-C07-002 (Tese operacional): “transferir carga executiva evitável do operador para
+      o sistema, preservando decisão e autonomia do usuário.” | DOC-C02-016 (PROPOSIÇÃO): “Investigar
+      riscos cognitivos endógenos como vulnerabilidades capazes de aumentar a probabilidade de desvio
+      entre intenção e execução”; COMPONENTES PROVISÓRIOS 1–5. | DOC-C02-014 (OBJETIVO): “Publicar o artigo
+      fundador e iniciar a campanha inaugural de 14 dias sem transformar a campanha em lançamento de produto.”
+      | DOC-C06-001: “recomendação: 60h comprometidas + 12h de reserva (83% da capacidade)”. | DOC-C09-013:
+      “4 módulos: Entender → Estruturar → Executar → Evoluir.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: ''
+    proxima_acao: ''
+  - field_id: '2.4'
+    title: Não-objetivos (non-goals)
+    description: O que está explicitamente fora de escopo, para evitar scope creep.
+    example: 'Ex: Não inclui edição colaborativa multi-usuário nesta fase.'
+    origem: formulario_original
+    valor: 'Não-objetivos explícitos e abundantes, por unidade. ECO-01: PROD-14 — “Bloquear usos do produto
+      como diagnóstico, substituição profissional ou inferência clínica a partir de desempenho em tarefas”;
+      CLAIM-01 proíbe “Reduz sintomas de TDAH”, “Melhora função executiva clinicamente”, “Trata TDAH”,
+      “Diagnostica ou identifica TDAH”, “Substitui terapia, tratamento ou medicação” e “Cientificamente
+      comprovado para TDAH”; POSITION-01 — “não como tratamento de TDAH”; EFFICACY-01 — “não iniciar com
+      claim de redução de sintomas”. No código: “Offline (OQ-008) segue fora de escopo, nunca implementado”;
+      e o primitivo concluirPorGestoHumano é “reservado DELIBERADAMENTE só para gesto humano direto —
+      o Copiloto/IA continua passando por executarFerramenta”. Duas explorações de design foram registradas
+      e deliberadamente NÃO adotadas: “Fractal Fluent” e “3PN + Good Path”. ECO-02: “O artigo não termina
+      vendendo EXECUTAR”; “O CTA do D14 não deve vender EXECUTAR na campanha inaugural.” ECO-03: “Não
+      reivindicar criação de ‘Cognitive Risk Management’”; não afirmar que “déficit de atenção” é termo
+      abolido; não afirmar que pessoas neurotípicas não possuem riscos cognitivos. ECO-04: “Roupas — fora
+      do escopo atual […] Não lançar agora”; “Não imobilizar estoque relevante antes de validar intenção.”
+      ECO-07: tabela “Não é para” (quem busca tratamento de saúde, quem quer só uma dica rápida, projeto
+      sem dono, escopo indefinido, grande transformação corporativa em sete dias); e “Eu não publicaria
+      ‘consulta sem limite de tempo’ literalmente.” GTM 07/09: “Não é: Editar landing · Terminar vídeo
+      · Produzir post · Cadastrar produto.”'
+    status: preenchido
+    tipo_informacao: decisao
+    confianca: alta
+    eco_unit: TRANSVERSAL
+    documento_ids:
+    - DOC-C07-009
+    - DOC-C04-002
+    - DOC-C02-043
+    - DOC-C02-014
+    - DOC-C02-016
+    - DOC-C09-008
+    - DOC-C05-001
+    - DOC-C06-001
+    evidencia: 'DOC-C07-009 (PROD-14): “Bloquear usos do produto como diagnóstico, substituição profissional
+      ou inferência clínica a partir de desempenho em tarefas”; (claims_policy.prohibited_now): lista
+      literal dos seis claims. | DOC-C04-002 (item 4e): “Offline (OQ-008 do FRD original do Scanner) segue
+      fora de escopo, nunca implementado.”; e “Duas explorações de design JÁ REGISTRADAS no ecossistema
+      e DELIBERADAMENTE NÃO ADOTADAS aqui”. | DOC-C02-043: “O artigo não termina vendendo EXECUTAR.” |
+      DOC-C02-016 (GUARDRAIL): “Não reivindicar criação de ‘Cognitive Risk Management’.” | DOC-C09-008
+      (Regra): “Não imobilizar estoque relevante antes de validar intenção.” | DOC-C06-001 (07/09): “Não
+      é: Editar landing · Terminar vídeo · Produzir post · Cadastrar produto. Se isso estiver acontecendo
+      em 07/09, o Freeze falhou.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: ''
+    proxima_acao: ''
+  - field_id: '2.5'
+    title: Requisitos funcionais (FRD)
+    description: Lista testável do que o sistema deve fazer.
+    example: 'Ex: Sistema deve gerar PR automaticamente a partir de um briefing preenchido.'
+    origem: formulario_original
+    valor: 'Requisitos funcionais existem em dois níveis. (a) Componentes sistêmicos derivados da compensação
+      (DOC-C05-001, item 16): “memória externa persistente, decomposição assistida, motor de prioridade,
+      próxima ação, contexto persistente, throughput observado, sistema temporal, grafo de dependências,
+      progresso automático, DoD e retomada de estado”; automações (item 18): “recalcular prioridades,
+      filtrar elegibilidade, preservar contexto, atualizar progresso e selecionar a próxima ação”. Regras
+      do motor: dependências, tempo, WIP e ciclo definem elegibilidade; Flow Score e Context Score ordenam
+      as alternativas válidas; Progress Points registram somente trabalho efetivamente concluído. (b)
+      Requisitos já implementados e verificáveis (DOC-C04-002): rota /scanner com reconhecimento de forma,
+      sem QR, dos cinco símbolos administrativos entrada | copiloto | seletor | feito | saída; resolverPayloadScanner(payload);
+      idempotencyKeyScanner com bucket de 10s contra duplo-scan acidental; Undo com janela de 8s restaurando
+      o EstadoOperacional anterior via expectedRevision (concorrência otimista); rota /mapa-os com projetarMapaOS
+      — projeção pura, “nenhum estado novo” — nos formatos prisma (A4 retrato) e tripé (A4 paisagem);
+      primitivo concluirPorGestoHumano, que ignora requireDod, requireEvidence, requireHumanApproval e
+      requireVerification mesmo sob POLITICA_CONCLUSAO_PADRAO, mas apenas para gesto humano direto e mantendo
+      registro auditável no event log; toda mutação oficial passa por executarFerramenta, com idempotência
+      e replay via run-ledger. (c) Requisitos de UX derivados das decisões PROD-05 e PROD-09…PROD-13:
+      uma única próxima ação principal explícita; nos primeiros segundos mostrar estado atual, resultado
+      necessário e próxima ação; persistir contexto e posição de execução para retomada; interromper apenas
+      por evento crítico; exigir confirmação só em ações irreversíveis.'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: ECO-01
+    documento_ids:
+    - DOC-C04-002
+    - DOC-C05-001
+    - DOC-C07-009
+    - DOC-C11-006
+    - DOC-C11-004
+    evidencia: 'DOC-C04-002: “idempotencyKeyScanner(organizationId, acao, alvo, nowMs) → bucket de 10s,
+      evita duplo-scan acidental”; “Undo: janela de 8s, restaura o EstadoOperacional anterior via o mesmo
+      endpoint de salvar estado com expectedRevision”; “concluirPorGestoHumano(tasks, state, taskId, nota)
+      — Ignora TODAS as flags de PoliticaConclusao […] Reservado DELIBERADAMENTE só para gesto humano
+      direto”. | DOC-C05-001 (item 16 Componentes sistêmicos): lista literal dos onze componentes. | DOC-C07-009
+      (PROD-09): “A interface deve tornar explícita uma única próxima ação principal e esconder complexidade
+      secundária até ser necessária.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Não há FRD consolidado: os requisitos estão distribuídos entre handoff técnico, workbook
+      e decisões. O Scanner mobile (Expo) só é validável em device físico e não foi testado além de typecheck/build.'
+    proxima_acao: Consolidar os requisitos dispersos num FRD único e validar o Scanner mobile em device
+      físico antes do lançamento.
+  - field_id: '2.6'
+    title: Critérios de aceite
+    description: Como se prova, de forma objetiva, que um requisito foi cumprido.
+    example: 'Ex: Artigo real publicado ponta a ponta sem edição manual de TypeScript.'
+    origem: formulario_original
+    valor: 'Critérios de aceite existem em cinco camadas. (a) DoD editorial do GTM: “texto aprovado +
+      assets presentes + CTA funcional + brinde funcional + CMS carregado + SEO preenchido + links testados
+      + publicação/agendamento confirmado + evidência registrada”, sobre a cadeia de pacote “conteúdo
+      → assets → CTA → brinde → destino → CMS → distribuição → agendamento → tracking → evidência = DONE”.
+      (b) Critérios de lançamento de 05/09 (dez itens): páginas críticas abrem em celular e computador;
+      todas as chamadas chegam ao destino correto; formulários recebem respostas; ofertas digitais estão
+      cadastradas; ligações de afiliado estão identificadas; peças editoriais publicadas ou agendadas;
+      demonstrações acessíveis; materiais para redes agendados; medição básica funcionando; não existe
+      entrega crítica aguardando produção. (c) DoD técnico verificado: typecheck limpo, bun run check
+      limpo, 51/51 testes vitest, 347/347 testes de governança e 3/3 checks de CI verdes por PR. (d) DoD
+      do site/CMS: “Abrir /admin → criar artigo → escrever/colar → categorizar → inserir imagem → preencher
+      SEO → ver palavras/parágrafos → preview → publicar, sem editar código.” (e) Critério de conclusão
+      do ECO-02: “Artigo 1.200–1.800 palavras publicado, landing disponível, CTA editorial funcionando
+      e cronograma D1–D14 iniciado.” Princípio de produto que rege todos: “DONE deve ser uma transição
+      verificável, não uma sensação de conclusão.”'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: TRANSVERSAL
+    documento_ids:
+    - DOC-C06-001
+    - DOC-C08-007
+    - DOC-C04-002
+    - DOC-C02-017
+    - DOC-C02-014
+    - DOC-C07-002
+    - DOC-C10-010
+    - DOC-C10-018
+    - DOC-C10-026
+    evidencia: 'DOC-C06-001: “Definition of Done editorial: texto aprovado + assets presentes + CTA funcional
+      + brinde funcional + CMS carregado + SEO preenchido + links testados + publicação/agendamento confirmado
+      + evidência registrada.” | DOC-C08-007: lista literal dos dez critérios de congelamento de 05/09.
+      | DOC-C04-002: “bun run --filter=app test (vitest) → 51/51 passando”; “node --test tests/ondas/*.test.mjs
+      (governança) → 347/347 passando”. | DOC-C02-017 (DEFINITION OF DONE): “Abrir /admin → criar artigo
+      → […] → publicar, sem editar código.” | DOC-C07-002 (GP-10, decisão de produto): “DONE deve ser
+      uma transição verificável, não uma sensação de conclusão.” | DOC-C10-010/018/026: “Concluído quando:
+      A peça está publicada ou programada, com materiais, chamada, destino e evidência registrados.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: ''
+    proxima_acao: ''
+  - field_id: '2.7'
+    title: Persona principal
+    description: Quem usa o produto no dia a dia — nome fictício e papel.
+    example: 'Ex: ''Marina'', editora solo que aprova publicações pelo celular.'
+    origem: formulario_original
+    valor: 'Não há artefato de persona (nome, cenário, objetivos, frustrações) em nenhum documento. O
+      que existe são duas descrições de ICP em conflito — as mesmas do campo 1.2 — acrescidas de perspectivas
+      em primeira pessoa que funcionam como matéria-prima de persona. Versão A (DOC-C05-001): “Homens,
+      adultos, neurodivergentes, autônomos, na faixa dos 25–35 anos, recém-diagnosticados, que gerenciam
+      múltiplos processos e projetos ao mesmo tempo […] já utilizaram e abandonaram outros aplicativos
+      por não manterem o uso e rejeitam alta complexidade de configuração.” Versão B (DOC-C07-009, ICP-01):
+      “profissional independente/solo brasileiro, aproximadamente 25–44 anos, multiprojeto, que perde
+      contexto, tem dificuldade recorrente para escolher próxima ação, já tentou ferramentas de produtividade
+      e controla/influencia a própria compra”, sem exigir diagnóstico. Persona do ECO-07 documentada em
+      separado: “profissionais solo, autônomos e pequenos negócios com trabalho, informação, clientes
+      e projetos dispersos”, com tabela “É para / Não é para”.'
+    status: parcial
+    tipo_informacao: hipotese
+    confianca: media
+    eco_unit: ECO-01 (com persona própria em ECO-07)
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C07-009
+    - DOC-C12-003
+    evidencia: 'DOC-C05-001 (Corpo, linha Público): texto integral da versão A, com a perspectiva do usuário
+      “Quero começar o dia, semana, mês de trabalho executando as tarefas sem, ao mesmo tempo, me preocupar
+      com a ordem e controle da progressão.” | DOC-C07-009 (ICP comercial a testar): texto integral da
+      versão B, com “Decisão ICP-01: testar comportamento e problema primeiro; diagnóstico não define
+      o ICP comercial inicial.” | DOC-C12-003: dez perguntas do formulário de entrada do Estúdio, que
+      operacionalizam o perfil (como trabalha hoje, principal atrito, ferramentas atuais, dificuldade
+      de retomada, relação com papel/físico).'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Falta a persona formalizada, e falta resolver o conflito de ICP (faixa etária 25–35 × 25–44,
+      gênero, papel do diagnóstico). O artefato estaria num documento de pesquisa de usuário/persona —
+      inexistente; e a própria decisão ICP-01 tem status DECIDED_FOR_TEST, isto é, hipótese a validar
+      em recrutamento.
+    proxima_acao: Resolver o conflito de ICP e escrever uma persona única derivada da versão vencedora;
+      ICP-01 já prevê “recrutar ICP comportamental e medir ativação, recorrência, pagamento e retenção”.
+  - field_id: '2.8'
+    title: Jornada — Descoberta
+    description: Como o usuário chega até o produto pela primeira vez.
+    example: 'Ex: Recebe link de preview gerado automaticamente pelo pipeline.'
+    origem: formulario_original
+    valor: 'A jornada de descoberta está desenhada para os eixos editorial e de serviços, não para o app.
+      Editorial (ECO-02): a descoberta é governada por níveis de consciência — “Não consciente → consciente
+      do problema → consciente das soluções → consciente do método → pronto para agir” — com CTA correspondente
+      por nível (“Baixa consciência: não empurre Produto; CTA ideal ‘Entenda o que está acontecendo’”;
+      “Alta intenção: não empurre mais teoria; CTA ‘Experimentar Executar / conhecer Studio’”). O artigo
+      canônico é a peça-mãe e cada peça segue a narrativa “CENA → PROBLEMA → MECANISMO → EVIDÊNCIA → MODELO
+      → APLICAÇÃO → DEMONSTRAÇÃO → PRÓXIMO PASSO”. A campanha inaugural do ECO-02 vai de D1 (artigo +
+      landing) a D14 (síntese + CTA editorial), com CTA “ler, explorar, assinar e baixar o Mapa de Risco
+      Cognitivo” e o produto deliberadamente em segundo plano. Serviços (ECO-07): “Conteúdo → Showroom
+      → Formulário visual → Encontro → Projeto”, com regra de showroom “Problema → entrada real → transformação
+      → resultado → prova → CTA”. Porta de entrada de captação: brinde canônico BRINDE-001/GIFT-001, com
+      cadeia “asset → capa → landing → formulário → confirmação → entrega/download → CTA → tracking →
+      evidence”.'
+    status: parcial
+    tipo_informacao: decisao
+    confianca: media
+    eco_unit: ECO-02 e ECO-07 documentadas; ECO-01 sem jornada de descoberta própria
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C02-043
+    - DOC-C06-001
+    - DOC-C10-029
+    - DOC-C11-010
+    - DOC-C12-004
+    evidencia: 'DOC-C05-001 (CTA por nível de consciência): “Baixa | não empurre Produto | CTA ideal Entenda
+      o que está acontecendo”; “Alta intenção | não empurre Mais teoria | CTA Experimentar Executar /
+      conhecer Studio.” | DOC-C05-001 (Showroom — regra geral): “Problema → entrada real → transformação
+      → resultado → prova → CTA. Não faça vídeos ‘Veja meu agente incrível’.” | DOC-C02-043: “CTA inicial:
+      ler, explorar, assinar e baixar o Mapa de Risco Cognitivo; o EXECUTAR fica para uma campanha posterior.”
+      | DOC-C10-029: “asset → capa → landing → formulário → confirmação → entrega/download → CTA → tracking
+      → evidence” (cadeia do brinde).'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta a jornada de descoberta específica do app: como um usuário chega ao EXECUTAR (loja
+      de apps, landing, indicação) não está documentado. Os eventos acquisition_source e campaign_id existem
+      como especificação de telemetria, sem mapa de jornada correspondente.'
+    proxima_acao: Desenhar a jornada de descoberta do ECO-01 ligando os CTAs CH-001/CH-002 aos eventos
+      acquisition_source e install_or_signup.
+  - field_id: '2.9'
+    title: Jornada — Ativação
+    description: O primeiro momento em que o usuário obtém valor real.
+    example: 'Ex: Primeira publicação aprovada e no ar via QR code físico.'
+    origem: formulario_original
+    valor: 'A ativação está definida com precisão no ECO-01 pelo VALUE_EVENT-01: “Projeto real → contexto
+      interpretado → próxima ação válida → ação executada → conclusão/evidência registrada”. Os eventos
+      de telemetria que a marcam são activated_at e first_value_at. As decisões que governam os primeiros
+      minutos: PROD-12 — “Nos primeiros segundos, mostrar estado atual, resultado necessário e próxima
+      ação — não o projeto inteiro”; PROD-09 — “A interface deve tornar explícita uma única próxima ação
+      principal”; PROD-08 — “Usar perguntas de auto-observação e funcionamento cotidiano; proibir triagem
+      diagnóstica baseada em um único teste, score ou tarefa do app”; PROD-05 — reduzir densidade simultânea
+      de informação. Tecnicamente, o app é local-first (hidrata de localStorage via chaveOrganizacao +
+      restaurarEstado), o que remove exigência de credenciais ou servidor para o primeiro uso. ECO-07
+      tem ativação própria: D0 formulário visual de 5 minutos → D1 conversa + desenho da solução ao vivo
+      → D4 protótipo funcional → D6 entrega + onboarding.'
+    status: preenchido
+    tipo_informacao: decisao
+    confianca: media
+    eco_unit: ECO-01 (com jornada de ativação própria em ECO-07)
+    documento_ids:
+    - DOC-C07-009
+    - DOC-C04-002
+    - DOC-C05-001
+    - DOC-C11-004
+    evidencia: 'DOC-C07-009 (telemetry): “value_event_01: Projeto real → contexto interpretado → próxima
+      ação válida → ação executada → conclusão/evidência registrada”; required_events incluem “activated_at”
+      e “first_value_at”. | DOC-C07-009 (PROD-12): “Nos primeiros segundos, mostrar estado atual, resultado
+      necessário e próxima ação — não o projeto inteiro.” | DOC-C04-002: “App é local-first: EstadoOperacional
+      hidrata de localStorage via chaveOrganizacao + restaurarEstado, sincroniza com servidor só opcionalmente.”
+      | DOC-C05-001 (Jornada canônica do Studio): “D0 Formulário de 5 minutos… D6 Versão final — Entrega
+      + onboarding.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'O VALUE_EVENT-01 está definido, mas não instrumentado: não existe nenhuma taxa de ativação
+      medida.'
+    proxima_acao: Instrumentar activated_at e first_value_at e medir a taxa de conclusão do VALUE_EVENT-01
+      no piloto de ≥40 usuários previsto em PMF-01.
+  - field_id: '2.10'
+    title: Jornada — Uso recorrente
+    description: O que traz o usuário de volta, sessão após sessão.
+    example: 'Ex: Fluxo semanal de briefing → preview → aprovação.'
+    origem: formulario_original
+    valor: 'O uso recorrente é desenhado como uso deliberadamente baixo — e isso é assumido como hipótese,
+      não como fato. Promessa: “uso mínimo do app — cerca de 1–2 vezes por semana”; princípio: “o usuário
+      não estrutura, organiza ou prioriza; o usuário visualiza, acompanha e administra”. O Diferencial
+      03 registra explicitamente que “a superioridade específica do analógico e a frequência ideal de
+      ‘1–2 vezes por semana’ permanecem hipóteses de produto/design, não resultados empiricamente demonstrados
+      nos documentos”. O loop operacional recorrente está demonstrado pelo Agente 007: “/bomdia → reconstruir
+      estado → mostrar trabalho atual” e a sequência “/bomdia → /agora → execução → evidência → /fechardia
+      → /estado → replanejamento”. Métricas de recorrência especificadas: coortes W1/W2/W4/W8, execution_cycles_per_week,
+      last_value_event_at e renewed_at. No plano físico, o Mapa-OS existe para sustentar o trabalho fora
+      da tela: “Seu sistema de execução não precisa viver na tela para continuar sustentando o trabalho.”
+      ECO-07 tem recorrência contratual própria: manutenção programada em 10/20/30 dias, com expansão
+      tratada como novo projeto.'
+    status: parcial
+    tipo_informacao: hipotese
+    confianca: media
+    eco_unit: ECO-01 (com recorrência contratual própria em ECO-07)
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C07-009
+    - DOC-C11-006
+    - DOC-C11-008
+    evidencia: 'DOC-C05-001 (Promessa principal): “Zero configuração, mínimo de personalização, uso mínimo
+      do app — cerca de 1–2 vezes por semana — e externalização cognitiva”; (Diferencial 03): “a superioridade
+      específica do analógico e a frequência ideal de ‘1–2 vezes por semana’ permanecem hipóteses de produto/design,
+      não resultados empiricamente demonstrados nos documentos.” | DOC-C11-006 (Cena A): “/bomdia → reconstruir
+      estado → mostrar trabalho atual.” | DOC-C07-009 (telemetry): “cohorts: W1, W2, W4, W8”; “execution_cycles_per_week”.
+      | DOC-C11-008 (Mensagem): “O sistema pode sustentar o trabalho sem exigir permanência contínua na
+      tela.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta qualquer dado de retenção observada: nenhuma coorte medida, nenhuma frequência real
+      de uso, e o próprio churn de 10/15/20% é premissa. O dado nasceria das coortes W1/W2/W4/W8 do warehouse,
+      ainda não populadas.'
+    proxima_acao: Medir a frequência real de uso no piloto para confirmar ou falsear a hipótese de 1–2
+      vezes por semana, que hoje sustenta a promessa central do produto.
+  - field_id: '2.11'
+    title: Momento 'aha'
+    description: O instante exato em que o valor fica óbvio para o usuário.
+    example: 'Ex: Ver o artigo publicado automaticamente após aprovar pelo celular.'
+    origem: formulario_original
+    valor: 'Nenhum documento usa a expressão “momento aha”. O equivalente funcional canônico é o VALUE_EVENT-01
+      — “Projeto real → contexto interpretado → próxima ação válida → ação executada → conclusão/evidência
+      registrada” —, definido como o evento que caracteriza valor entregue e que governa o gate de PMF.
+      As cenas de demonstração que materializam esse momento são: Cena A do app — “‘Tenho 30 minutos.’
+      Mostrar o sistema reduzindo um projeto complexo à próxima ação possível”; Cena B — “Alterar uma
+      condição do dia e mostrar plano preservado + rota recalculada”; e o loop do Agente 007 — “/bomdia
+      → reconstruir estado → mostrar trabalho atual”. A frase de posicionamento que descreve o momento:
+      “Você não precisa reorganizar o projeto toda vez que o dia muda. O sistema recalcula a rota e mostra
+      o próximo passo possível.” A mensagem correspondente é “O plano continua. A rota se adapta. Você
+      executa.”'
+    status: parcial
+    tipo_informacao: inferencia
+    confianca: media
+    eco_unit: ECO-01
+    documento_ids:
+    - DOC-C07-009
+    - DOC-C11-004
+    - DOC-C11-006
+    - DOC-C05-001
+    evidencia: 'DOC-C07-009 (telemetry.value_event_01): cadeia literal de cinco etapas. | DOC-C11-004
+      (Cena A): “‘Tenho 30 minutos.’ Mostrar o sistema reduzindo um projeto complexo à próxima ação possível”;
+      (Cena B): “Alterar uma condição do dia e mostrar plano preservado + rota recalculada.” | DOC-C05-001
+      (Frase de posicionamento 01 e Mensagem 01): “Você não precisa reorganizar o projeto toda vez que
+      o dia muda. O sistema recalcula a rota e mostra o próximo passo possível.” / “O plano continua.
+      A rota se adapta. Você executa.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 'Falta nomear e medir o momento aha: não há definição de qual etapa exata do VALUE_EVENT-01
+      produz o reconhecimento de valor, nem tempo-alvo para alcançá-lo — o endpoint time_to_next_action
+      existe, mas sem meta.'
+    proxima_acao: Adotar “primeira próxima ação válida executada em menos de X minutos” como definição
+      operacional do momento aha e fixar X após observar time_to_next_action no piloto.
+  - field_id: '2.12'
+    title: User story de referência
+    description: 'Formato: Como [persona], quero [ação] para que [benefício].'
+    example: 'Ex: Como editora solo, quero aprovar publicações pelo celular para não depender do computador.'
+    origem: formulario_original
+    valor: 'Não existe user story em formato canônico (“Como <persona>, quero <ação>, para <benefício>”)
+      em nenhum dos documentos lidos — a busca por “user story” e por padrões “Como … quero …” nos 214
+      arquivos não retorna ocorrências. O que existe são três declarações em primeira pessoa registradas
+      como “Perspectiva do usuário” no workbook, que cumprem a mesma função. (1) Público: “Quero começar
+      o dia, semana, mês de trabalho executando as tarefas sem, ao mesmo tempo, me preocupar com a ordem
+      e controle da progressão.” (2) Problema: “Perco dinheiro e oportunidades por atrasos e desorganização.
+      Quando consigo terminar aquilo que foi planejado, o custo emocional e cognitivo é tão alto que não
+      faço mais nada. O momento de maior ansiedade e aflição são os primeiros 30 minutos iniciais, pois
+      não sei onde estava ontem, o que devo fazer agora e como sei que terminei.” (3) Categoria: “Esse
+      app me entende e foi desenhado para mim e organiza tudo para mim de forma confiável e com metodologias
+      válidas.” A declaração (2) é a mais utilizável como story de referência porque nomeia gatilho (retomada),
+      momento (primeiros 30 minutos) e as três perguntas do usuário — onde parei, o que faço agora, como
+      sei que terminei — que mapeiam diretamente nos requisitos de contexto persistente, próxima ação
+      e DoD verificável.'
+    status: parcial
+    tipo_informacao: fato_interno
+    confianca: media
+    eco_unit: ECO-01
+    documento_ids:
+    - DOC-C05-001
+    - DOC-C11-004
+    evidencia: 'DOC-C05-001 (Corpo, linha Problema, Perspectiva do usuário): “Perco dinheiro e oportunidades
+      por atrasos e desorganização. […] O momento de maior ansiedade e aflição são os primeiros 30 minutos
+      iniciais, pois não sei onde estava ontem, o que devo fazer agora e como sei que terminei.” | DOC-C05-001
+      (Corpo, linha Público): “Quero começar o dia, semana, mês de trabalho executando as tarefas sem,
+      ao mesmo tempo, me preocupar com a ordem e controle da progressão.” | DOC-C11-004 (Cena A): “‘Tenho
+      30 minutos.’”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: Falta a user story formal com critérios de aceite acoplados. O artefato estaria num backlog
+      ou PRD — inexistentes no corpus.
+    proxima_acao: Converter a perspectiva dos “primeiros 30 minutos” em user story formal, com critérios
+      de aceite ligados a retomada de contexto, próxima ação e DoD verificável.
+  - field_id: '2.13'
+    title: Exploração de problema (pré-PRD)
+    description: Hipóteses já testadas ou descartadas antes de convergir no PRD atual.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: product-management
+    skill: product-brainstorming
+    valor: 'A exploração de problema pré-PRD é a parte mais desenvolvida de toda a Área 2, e existe em
+      quatro artefatos. (a) DATA-ADHD-PM-001 — matriz GP-01…GP-11: para cada função de gestão de projetos,
+      mapeia capacidade exigida → vulnerabilidade associada → classe de evidência (B/C/E) → impacto operacional
+      → compensação sistêmica → decisão de produto, com fonte clínica e científica por linha. (b) Os 28
+      pontos reorganizados como cadeia progressiva “fundamento → problema humano → efeito → compensação
+      → sistema → produto → validação”. (c) Framework de 694 perguntas com cobertura analítica: 248 RAW,
+      116 knowledge, 161 evidence candidates, 0 strict VERIFIED, 28 vínculos diretos candidatos, 484 vínculos
+      temáticos, 182 perguntas sem evidência — do qual derivam as 22 decisões operacionais. (d) Mapa de
+      pesquisa e prior art do ECO-03: o que já existe, whitespace provisório, guardrail e seis strings
+      de busca sugeridas (A a F). O corpus separa explicitamente evidência publicada de inferência, com
+      o invariante “original ≠ extração ≠ evidência ≠ decisão”.'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    eco_unit: TRANSVERSAL — ECO-01 e ECO-03
+    documento_ids:
+    - DOC-C07-010
+    - DOC-C07-002
+    - DOC-C07-003
+    - DOC-C05-001
+    - DOC-C07-009
+    - DOC-C02-031
+    - DOC-C01-005
+    evidencia: 'DOC-C07-010 (3P+N): “Progresso — A hipótese central é parcialmente sustentada: há convergência
+      forte para organização, planejamento, gestão temporal, atenção sustentada e conclusão; evidência
+      moderada para memória prospectiva, flexibilidade e metacognição”; “Next 01 Transformar a matriz
+      abaixo em requisitos funcionais e princípios de design verificáveis.” | DOC-C07-002 e DOC-C07-003:
+      11 linhas GP-01…GP-11 com colunas Função de gestão · Capacidade exigida · Vulnerabilidade associada
+      · Evidência · Impacto operacional · Compensação sistêmica · Decisão de produto/design. | DOC-C07-009
+      (kpis): “questions_694: 694 · candidate_direct_links: 28 · thematic_links: 484 · no_evidence: 182
+      · operational_decisions: 22 · strict_verified: 0.” | DOC-C02-031 (item 3, WHITESPACE PROVISÓRIO):
+      “perfil executivo individual → demanda cognitiva da tarefa → evento provável de falha → probabilidade/impacto
+      → controle compensatório → evidência de execução.”'
+    fonte_primaria: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+      em 31/08/2026
+    lacuna: 182 das 694 perguntas continuam sem evidência e o gate estrito registra 0 VERIFIED — a exploração
+      é ampla, mas nenhum vínculo está formalmente verificado.
+    proxima_acao: Fechar o gate factual pelo menos das evidências que sustentam as 15 decisões PROD-01…PROD-15,
+      hoje todas classificadas como DECISION_DERIVED_FROM_CANDIDATE_EVIDENCE.
+  field_count: 13
+  area_status: em_andamento
+  fonte_preenchimento: Base documental C01–C18 · 214 arquivos validados por SHA-256 · DOCUMENTOS.zip recebido
+    em 31/08/2026
+- area_id: 3
+  area_name: ARQUITETURA & FULL STACK
+  area_description: Como as peças se conectam — front, back, banco, infra, rotas
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - ARC-060
+  - ARC-063
+  - ARC-068
+  fields:
+  - field_id: '3.1'
+    title: Stack — Frontend
+    description: Framework, biblioteca de estilo, ferramentas principais.
+    example: 'Ex: Next.js + Tailwind + design tokens DESK-OS.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.2'
+    title: Stack — Backend
+    description: Runtime, linguagem, framework de servidor.
+    example: 'Ex: Node.js + TypeScript, funções serverless na Vercel.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.3'
+    title: Banco de dados
+    description: Sistema, provedor, e por quê essa escolha.
+    example: 'Ex: Postgres via Supabase (dados de produto) + Neon (dados serverless).'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.4'
+    title: Infraestrutura / hosting
+    description: Onde a aplicação roda e é servida.
+    example: 'Ex: Vercel (apps), Supabase (auth+db), GitHub (código).'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.5'
+    title: Autenticação
+    description: Método de login e provedor.
+    example: 'Ex: Supabase Auth com email/senha + OAuth Google.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.6'
+    title: Estrutura de repositório
+    description: Organização de pastas (monorepo, multi-repo, apps/packages).
+    example: 'Ex: Monorepo com apps/ (web-client, orchestrator) e packages/ (core, configs).'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.7'
+    title: Mapa de rotas principais
+    description: Rotas-chave da aplicação e o que cada uma faz.
+    example: 'Ex: /app/journal — editor; /health — status; /api/health — status detalhado.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.8'
+    title: 'Decisão de arquitetura #1 (ADR)'
+    description: Uma decisão técnica relevante e a alternativa descartada.
+    example: 'Ex: Monorepo único em vez de múltiplos repositórios — decidido para reduzir divergência
+      de versão.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.9'
+    title: 'Decisão de arquitetura #2 (ADR)'
+    description: Segunda decisão relevante, se houver.
+    example: 'Ex: Origem de produção lida de variável de ambiente, nunca hardcoded.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.10'
+    title: Trade-offs aceitos
+    description: O que foi conscientemente sacrificado por outra vantagem.
+    example: 'Ex: Menor flexibilidade de deploy independente em troca de consistência de versão.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '3.11'
+    title: Dívida técnica conhecida
+    description: O que já está identificado como dívida técnica e a prioridade de resolução.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: engineering
+    skill: tech-debt
+    valor: null
+    status: pendente
+  field_count: 11
+  area_status: pendente
+- area_id: 4
+  area_name: IMPLEMENTAÇÃO
+  area_description: Backend, frontend, APIs, agentes integrados e dependências
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - REQ-051
+  - REQ-052
+  - VAL-081
+  fields:
+  - field_id: '4.1'
+    title: Modelo de dados / schema
+    description: Entidades principais e como se relacionam.
+    example: 'Ex: users, posts, previews, publications — relacionados por post_id.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '4.2'
+    title: Endpoints de API principais
+    description: Lista dos endpoints mais importantes, método e função.
+    example: 'Ex: POST /api/publish — dispara publicação; GET /health — status do sistema.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '4.3'
+    title: Agentes/Tools MCP integrados
+    description: Nome de cada agente/tool, servidor MCP e escopo de permissão.
+    example: 'Ex: 11 tools EXECUTA + 10 tools Vault, servidor executar-ai canônico.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '4.4'
+    title: Dependências núcleo (obrigatórias)
+    description: Pacotes/serviços sem os quais o build falha.
+    example: 'Ex: 6 variáveis de ambiente núcleo exigidas no build.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '4.5'
+    title: Dependências condicionais
+    description: Pacotes/serviços ativados apenas sob feature flag.
+    example: 'Ex: Tokens Editorial E2 exigidos apenas quando EDITORIAL_E2_ENABLED=true.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '4.6'
+    title: Política de atualização de dependências
+    description: 'Como e quando dependências são atualizadas (ex: Dependabot).'
+    example: 'Ex: PRs de risco baixo mesclados imediatamente; risco alto isolado, um de cada vez, com
+      suíte de testes rodando.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '4.7'
+    title: Componente frontend principal
+    description: A tela/fluxo mais crítico do produto.
+    example: 'Ex: Editor de Journal em /app/journal — criar, publicar, despublicar posts.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '4.8'
+    title: Testes automatizados
+    description: O que é coberto por CI (lint, typecheck, test, build).
+    example: 'Ex: 204 testes (api) + 14 testes (web), rodando em todo PR.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '4.9'
+    title: Estratégia de testes
+    description: Pirâmide de testes e cobertura-alvo além do que já roda em CI hoje.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: engineering
+    skill: testing-strategy
+    valor: null
+    status: pendente
+  field_count: 9
+  area_status: pendente
+- area_id: 5
+  area_name: OPERAÇÃO (DEPLOY & ROLLBACK)
+  area_description: O que garante que o lançamento não quebra silenciosamente
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - DEL-075
+  - GTM-093
+  fields:
+  - field_id: '5.1'
+    title: Checklist pré-deploy
+    description: O que precisa estar verde antes de subir para produção.
+    example: 'Ex: Testes passando em CI, migrations testadas, segredos configurados.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '5.2'
+    title: Checks de saúde pós-deploy
+    description: Endpoints/sinais verificados logo após o deploy.
+    example: 'Ex: GET /health retorna status ok; rotas principais respondem 200.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '5.3'
+    title: Gatilho de rollback — taxa de erro
+    description: Limiar objetivo de erro que dispara rollback.
+    example: 'Ex: Taxa de erro acima de 5% em 15 minutos.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '5.4'
+    title: Gatilho de rollback — latência
+    description: Limiar objetivo de latência que dispara rollback.
+    example: 'Ex: Latência P50 acima de 800ms sustentada.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '5.5'
+    title: Gatilho de rollback — fluxo crítico
+    description: Qual fluxo, se falhar, exige rollback imediato.
+    example: 'Ex: Fluxo de publicação (briefing → PR → preview → produção).'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '5.6'
+    title: Procedimento de rollback
+    description: Passo a passo de como reverter um deploy problemático.
+    example: 'Ex: Reverter para o último deploy estável via painel Vercel + confirmar /health.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '5.7'
+    title: Resposta a incidentes
+    description: Como é feita a triagem de severidade e o postmortem depois de um incidente em produção.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: engineering
+    skill: incident-response
+    valor: null
+    status: pendente
+  - field_id: '5.8'
+    title: Gestão de mudanças
+    description: Se mudanças de risco passam por um change request formal antes de ir pra produção.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: operations
+    skill: change-request
+    valor: null
+    status: pendente
+  field_count: 8
+  area_status: pendente
+- area_id: 6
+  area_name: GOVERNANÇA & SEGURANÇA
+  area_description: Quem pode fazer o quê, onde segredos vivem, e como decisões de política são tomadas
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - REQ-057
+  - GOV-002
+  - GOV-004
+  fields:
+  - field_id: '6.1'
+    title: Estratégia de branch
+    description: Trabalho direto em main vs. PR obrigatório — e quando cada um se aplica.
+    example: 'Ex: PR obrigatório para mudanças de produto; correções de config podem ir direto com aprovação.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '6.2'
+    title: Gate humano obrigatório
+    description: Em quais mudanças um humano precisa aprovar antes do merge/deploy.
+    example: 'Ex: Toda mudança de schema de banco exige aprovação humana explícita.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '6.3'
+    title: Armazenamento de segredos
+    description: Onde credenciais vivem — nunca em código versionado.
+    example: 'Ex: Variáveis de ambiente na Vercel, nunca em .env commitado.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '6.4'
+    title: Rotação de credenciais
+    description: Frequência e gatilho para trocar chaves/segredos.
+    example: 'Ex: Rotação imediata se uma chave for exposta; revisão trimestral por padrão.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '6.5'
+    title: Riscos de segurança conhecidos
+    description: Vulnerabilidades ou fallbacks inseguros já identificados.
+    example: 'Ex: Fallback público/OWNER identificado em auditoria — remediação em andamento.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '6.6'
+    title: Escopo de autonomia do agente de AI
+    description: O que um agente (Claude Code etc.) pode fazer sem aprovação humana.
+    example: 'Ex: Pode abrir PR draft; não pode mesclar em main sem revisão humana.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '6.7'
+    title: Rastreamento de compliance
+    description: Quais frameworks de compliance se aplicam (SOC2, ISO 27001, GDPR/LGPD) e status de prontidão.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: operations / legal
+    skill: compliance-tracking / compliance-check
+    valor: null
+    status: pendente
+  field_count: 7
+  area_status: pendente
+- area_id: 7
+  area_name: DOCUMENTAÇÃO FUNDACIONAL
+  area_description: O que permite que qualquer pessoa ou agente entre no projeto sem reconstruir contexto
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - GOV-002
+  - ARC-068
+  fields:
+  - field_id: '7.1'
+    title: README existe?
+    description: Status do README principal do repositório.
+    example: 'Ex: Pendente — precisa cobrir problema, público, arquitetura, resultados em até 3 min de
+      leitura.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '7.2'
+    title: ADRs documentados
+    description: Quantas decisões de arquitetura estão formalizadas como ADR.
+    example: 'Ex: 0 formalizados; 2 decisões implícitas identificadas, pendentes de registro.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '7.3'
+    title: Documentação de API
+    description: Status da referência de endpoints.
+    example: 'Ex: Pendente — endpoints existem no código mas sem doc formal.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '7.4'
+    title: Guia de onboarding
+    description: Existe um guia para alguém novo configurar o ambiente?
+    example: 'Ex: Não existe ainda; setup depende de conhecimento tácito.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '7.5'
+    title: Catálogo de skills/ferramentas
+    description: Se o projeto usa um conjunto de skills/agentes, estão documentados?
+    example: 'Ex: 13 skills usadas no projeto, catálogo navegável pendente de publicação.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '7.6'
+    title: Memória de trabalho para agentes
+    description: O que precisa virar CLAUDE.md / memória persistente para os agentes de IA entenderem
+      o projeto sem reconstruir contexto.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: productivity
+    skill: memory-management
+    valor: null
+    status: pendente
+  field_count: 6
+  area_status: pendente
+- area_id: 8
+  area_name: GESTÃO DE PROJETOS & PMBOK
+  area_description: Iniciação e governança do projeto — valor, sponsor e decisão Go/No-Go
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - GOV-001
+  - DEL-070
+  fields:
+  - field_id: '8.1'
+    title: Problema/oportunidade que justifica o projeto
+    description: Descreva em 1 frase por que este projeto deve existir, conforme o Project Charter.
+    example: 'Ex: Consolidar toda a gestão do projeto em uma única fonte de verdade, eliminando divergência
+      entre documentos.'
+    origem: formulario_original
+    valor: 'Gap entre intenção e execução: pessoas capazes — sobretudo adultos neurodivergentes e autônomos
+      com múltiplos projetos — perdem tempo e energia organizando, priorizando, retomando contexto, lembrando
+      dependências e administrando ferramentas, a ponto de a própria organização virar fonte de atrito.
+      A oportunidade é ocupar a integração ainda pouco explorada entre neurodivergência, ergonomia cognitiva,
+      human factors e gestão de riscos aplicada à execução.'
+    status: parcial
+    tipo_informacao: fato_interno
+    confianca: alta
+    fonte_primaria: Basedocumental310826.md § 04-Analise-evidencias · sha256:62ca31db…aea4
+    evidencia: §02 Problema e Mercado (Gap Intenção–Execução; Carga Executiva; Adultos Neurodivergentes)
+      e §01 Síntese Estratégica (Integração Operacional).
+    lacuna: O próprio §03-T1 registra que a justificativa ainda precisa ser consolidada formalmente como
+      problema central + oportunidade de mercado em documento único.
+    proxima_acao: Consolidar 8.1 em declaração formal de problema/oportunidade no Project Charter (PC-01).
+  - field_id: '8.2'
+    title: Sponsor / Patrocinador
+    description: Nome de quem tem autoridade para aprovar o projeto formalmente.
+    example: 'Ex: A definir — nenhum sponsor formal designado ainda.'
+    origem: formulario_original
+    valor: Não há patrocinador formal definido neste estágio. A operação é conduzida por trabalhador solo
+      independente, que acumula de fato a autoridade decisória.
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 01. Justificativa e Governança · Patrocínio · 8.2.
+    lacuna: ''
+    proxima_acao: Registrar formalmente a autoridade decisória do owner no Project Charter (PC-01/PC-02).
+  - field_id: '8.3'
+    title: Critério de sucesso principal
+    description: Indicador objetivo que mostrará que o projeto deu certo, com meta e prazo.
+    example: 'Ex: 100% dos domínios do formulário preenchidos até 2026-09-30.'
+    origem: formulario_original
+    valor: Captar clientes para a Consultoria EXECUTAR enquanto as demais linhas do ecossistema são desenvolvidas,
+      validadas e solidificadas — a consultoria funciona como principal mecanismo de geração de caixa
+      e de mapa de calor das necessidades reais do público.
+    status: parcial
+    tipo_informacao: decisao
+    confianca: alta
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · Critério de Sucesso · 8.3 + 03. Objetivos Táticos T1 + 09. Indicadores de Sucesso
+      · Receita.
+    lacuna: 'Falta meta numérica e prazo: quantos clientes, qual receita, até quando. O campo exige indicador
+      objetivo com meta e prazo.'
+    proxima_acao: Definir meta quantitativa de clientes/receita de consultoria e a data-alvo, ancorada
+      no roadmap set/2026–jan/2027.
+  - field_id: '8.4'
+    title: Decisão Go/No-Go
+    description: 'Status atual da autorização formal do projeto: Proposto, Em avaliação, Autorizado, Suspenso
+      ou Cancelado.'
+    example: 'Ex: Em avaliação — aguardando confirmação do sponsor.'
+    origem: formulario_original
+    valor: null
+    status: lacuna
+    tipo_informacao: ''
+    confianca: ''
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · Gate de Decisão · 8.4 registra explicitamente TBD.
+    lacuna: Não existem critérios objetivos definidos para continuar, corrigir, suspender ou despriorizar
+      cada linha do ecossistema.
+    proxima_acao: Definir critérios Go/No-Go por linha (app, blog, infoprodutos, físicos, consultoria,
+      livro), ancorados no Gate de Revisão de 24/10/2026.
+  - field_id: '8.5'
+    title: Abordagem do projeto
+    description: Preditiva, Adaptativa/Ágil ou Híbrida, e por quê.
+    example: 'Ex: Híbrida — planejamento macro fixo, execução semanal iterativa.'
+    origem: formulario_original
+    valor: null
+    status: lacuna
+    tipo_informacao: ''
+    confianca: ''
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: '§03-T1 · Modelo de Gestão · 8.5 registra TBD; restrição conhecida: operação predominantemente
+      solo.'
+    lacuna: Abordagem preditiva, ágil ou híbrida ainda não escolhida nem documentada.
+    proxima_acao: Selecionar e documentar a abordagem (o PMBOK 8 contempla preditiva, adaptativa e híbrida
+      — PDF Fundamentos §3.6), coerente com operação solo e baixo overhead administrativo.
+  - field_id: '8.6'
+    title: Relato de status
+    description: Formato e cadência do relatório de status do projeto (verde/amarelo/vermelho).
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: operations
+    skill: status-report
+    valor: null
+    status: lacuna
+    tipo_informacao: ''
+    confianca: ''
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · Status Executivo · 8.6 registra TBD; §10 Pontos em Aberto · Semáforo de Status
+      confirma.
+    lacuna: Não há padrão Verde/Amarelo/Vermelho com critérios objetivos de prazo, risco, bloqueio e resultado.
+    proxima_acao: Formalizar regras do semáforo de status e a cadência de emissão do relato.
+  field_count: 6
+  area_status: em_andamento
+  fonte_preenchimento: Basedocumental310826.md (31/08/2026) · sha256:62ca31db…aea4
+- area_id: 9
+  area_name: PLANEJAMENTO ESTRATÉGICO, TÁTICO E OPERACIONAL
+  area_description: Os três horizontes de decisão — onde queremos chegar, como, e o que fazer esta semana
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - STR-015
+  - DEL-071
+  fields:
+  - field_id: '9.1'
+    title: Objetivo estratégico (12+ meses)
+    description: Descreva a direção de longo prazo do projeto.
+    example: 'Ex: Tornar-se a fonte única de operação do ecossistema Executar.'
+    origem: formulario_original
+    valor: Tornar-se referência em Risco Cognitivo e temas relacionados por meio de um ecossistema consolidado
+      de conteúdo, produtos, software, educação e serviços — construindo autoridade em território pouco
+      explorado via pesquisa, publicação, aplicação prática, casos e participação de especialistas.
+    status: preenchido
+    tipo_informacao: decisao
+    confianca: alta
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 02. Objetivos Estratégicos · 9.1 + Autoridade + Ecossistema.
+    lacuna: ''
+    proxima_acao: ''
+  - field_id: '9.2'
+    title: Objetivo tático (trimestre/ciclo)
+    description: O que precisa ser verdade daqui a 3 meses para o estratégico avançar.
+    example: 'Ex: Central de Controle com todos os domínios preenchidos e em uso ativo.'
+    origem: formulario_original
+    valor: 'Ciclo atual (T1): Consultoria e Capitalização — priorizar consultoria para gerar receita,
+      aprender com clientes e construir mapa de calor das necessidades reais. Sequência tática subsequente:
+      T2 consolidação do App SAS-EXECUTAR; T3 produtos e infoprodutos; T4 comunidade e ONG. Em paralelo:
+      livro sobre risco cognitivo e parcerias com especialistas no blog.'
+    status: preenchido
+    tipo_informacao: inferencia
+    confianca: media
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 03. Objetivos Táticos · T1–T4, Autoridade Editorial e Parcerias.
+    lacuna: 'Mapeamento inferido: a base documental lista os objetivos táticos T1–T4 mas não os rotula
+      explicitamente como o campo 9.2, nem fixa o horizonte trimestral de cada um.'
+    proxima_acao: Confirmar com o owner qual objetivo tático corresponde ao trimestre corrente e sua data
+      de fechamento.
+  - field_id: '9.3'
+    title: Prioridade operacional da semana
+    description: O que precisa avançar nos próximos 7 dias.
+    example: 'Ex: Confirmar owner e resolver as sobreposições de domínio pendentes.'
+    origem: formulario_original
+    valor: Lançar o blog, configurar as contas, definir a linha editorial e ativar o ecossistema editorial
+      antes do lançamento público do app beta — concluir a fundação editorial e os canais de aquisição
+      antes de avançar para o EXECUTAR beta.
+    status: preenchido
+    tipo_informacao: decisao
+    confianca: alta
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 04. Prioridade Operacional · 9.3 + Sequência Blog → App; confirmado pelo roadmap
+      (blog 07/09/2026, app beta 14/09/2026).
+    lacuna: ''
+    proxima_acao: ''
+  - field_id: '9.4'
+    title: Dependência entre horizontes
+    description: O que no nível tático bloqueia ou depende do estratégico.
+    example: 'Ex: O objetivo tático de preenchimento completo depende de um owner estratégico confirmado.'
+    origem: formulario_original
+    valor: 'Cadeia material já descrita na base: Consultoria → Capitalização (caixa enquanto produtos
+      escaláveis amadurecem); Consultoria → Necessidades (clientes geram evidência de dores recorrentes);
+      Necessidades → App (aprendizado orienta funcionalidades do SAS-EXECUTAR); Conteúdo → Produtos (audiência
+      sustenta distribuição e validação); Produtos → Comunidade (comunidade/ONG só após consolidação de
+      autoridade e operação).'
+    status: parcial
+    tipo_informacao: fato_interno
+    confianca: media
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 05. Dependências Estratégicas (cinco pares de dependência declarados).
+    lacuna: 'CONFLITO REGISTRADO: a linha 9.4 do §03-T1 marca "TBD — deve ser formalizada a cadeia de
+      dependências", mas o mesmo bloco §05 já enumera cinco dependências materiais. Falta a formalização
+      com predecessores, sucessores, bloqueios e gates explícitos.'
+    proxima_acao: Formalizar o grafo de dependências entre horizontes com gates verificáveis (resolve
+      também MASTER-04).
+  - field_id: '9.5'
+    title: Capacidade de recursos
+    description: A equipe atual comporta os próximos objetivos, ou falta contratar/despriorizar.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: operations
+    skill: capacity-plan
+    valor: 'Não aplicável no modelo atual: não há planejamento formal de contratação ou ampliação imediata
+      de equipe. Restrição vigente: operação predominantemente individual, com capacidade limitada de
+      execução simultânea e necessidade de limite de WIP para evitar dispersão.'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 06. Recursos e Capacidade · 9.5 + Operação Solo + Limite de WIP.
+    lacuna: ''
+    proxima_acao: Definir o número máximo de iniciativas simultâneas (limite de WIP numérico) — hoje é
+      diretriz qualitativa.
+  field_count: 5
+  area_status: em_andamento
+  fonte_preenchimento: Basedocumental310826.md (31/08/2026) · sha256:62ca31db…aea4
+- area_id: 10
+  area_name: ROADMAP, CRONOGRAMA, CICLOS E BACKLOG
+  area_description: Marcos de médio prazo e o ritmo semanal de execução
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - DEL-071
+  fields:
+  - field_id: '10.1'
+    title: 'Marco de médio prazo #1'
+    description: Próximo grande marco do projeto e data-alvo.
+    example: 'Ex: Central de Controle validada e em uso — 2026-09-15.'
+    origem: formulario_original
+    valor: null
+    status: lacuna
+    tipo_informacao: ''
+    confianca: ''
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 07. Marcos e Roadmap · 10.1 registra TBD.
+    lacuna: 'CONFLITO REGISTRADO: 10.1 está marcado TBD, mas o §05-Cronograma traz marcos datados (blog
+      07/09/2026; app beta 14/09/2026; serviços 21/09/2026; infoprodutos e físicos 28/09/2026; curso 19/10/2026;
+      Gate de Revisão 24/10/2026; manuscrito 12/12/2026; livro 10/01/2027). Falta eleger qual deles é
+      o marco de médio prazo #1 verificável.'
+    proxima_acao: 'Eleger o marco de médio prazo #1 — candidato mais forte: Gate de Revisão de 24/10/2026,
+      único ponto do roadmap que já é definido como decisão baseada em dados acumulados.'
+  - field_id: '10.2'
+    title: Ciclo semanal atual
+    description: 'Em qual fase do ciclo o projeto está agora: Editorial, Desenvolvimento ou Governança.'
+    example: 'Ex: Governança — revisão de domingo.'
+    origem: formulario_original
+    valor: 'Ciclo Zero — dedicado à preparação, estruturação e ativação inicial do ecossistema: canais,
+      conteúdo, contas, processos, ativos e preparação dos primeiros lançamentos.'
+    status: preenchido
+    tipo_informacao: fato_interno
+    confianca: alta
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 07. Marcos e Roadmap · 10.2 + 08. Modelo Operacional · Ciclo Zero.
+    lacuna: O formulário original oferece as opções Editorial/Desenvolvimento/Governança; "Ciclo Zero"
+      é um estado anterior a essas três fases e não estava previsto na lista de opções.
+    proxima_acao: Ampliar o domínio de valores de 10.2 para incluir Ciclo Zero (fundação) além de Editorial,
+      Desenvolvimento e Governança.
+  - field_id: '10.3'
+    title: Item de backlog crítico
+    description: Tarefa pendente que bloqueia o próximo marco.
+    example: 'Ex: Sincronizar backlog do Linear com a aba de execução.'
+    origem: formulario_original
+    valor: null
+    status: lacuna
+    tipo_informacao: ''
+    confianca: ''
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · Backlog · 10.3 registra TBD; §10 Pontos em Aberto · Item Crítico confirma.
+    lacuna: 'Não foi identificado o único item cuja não execução bloqueia o próximo marco. Candidato derivável
+      de 9.3: o lançamento do blog em 07/09/2026 (predecessor declarado do app beta).'
+    proxima_acao: Confirmar com o owner o item de backlog crítico único e amarrá-lo ao marco de 10.1.
+  - field_id: '10.4'
+    title: Cadência de revisão
+    description: Com que frequência o roadmap é revisado e por quem.
+    example: 'Ex: Toda segunda-feira, pelo owner do projeto.'
+    origem: formulario_original
+    valor: 'Revisão quinzenal: a cada 15 dias estratégia, backlog e roadmap são confrontados com dados
+      reais de execução e mercado. Responsável: o owner do projeto (operação solo).'
+    status: preenchido
+    tipo_informacao: decisao
+    confianca: alta
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · 07. Marcos e Roadmap · 10.4 + 08. Modelo Operacional · Revisão Quinzenal.
+    lacuna: ''
+    proxima_acao: ''
+  - field_id: '10.5'
+    title: Planejamento de sprint
+    description: Como o backlog é dimensionado contra a capacidade real do ciclo.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: product-management
+    skill: sprint-planning
+    valor: null
+    status: lacuna
+    tipo_informacao: ''
+    confianca: ''
+    fonte_primaria: Basedocumental310826.md § 03-T1 · sha256:62ca31db…aea4
+    evidencia: §03-T1 · Sprint · 10.5 registra TBD; §10 Pontos em Aberto · Capacidade confirma.
+    lacuna: 'Não existe mecanismo para selecionar trabalho por prioridade, dependência e capacidade real.
+      Restrição conhecida (9.5): operação solo exige regra simples e limite de WIP.'
+    proxima_acao: Criar regra mínima de planejamento que limite compromissos do ciclo à capacidade real
+      disponível.
+  field_count: 5
+  area_status: em_andamento
+  fonte_preenchimento: Basedocumental310826.md (31/08/2026) · sha256:62ca31db…aea4
+- area_id: 11
+  area_name: EDITORIAL, CAMPANHAS E CONTEÚDO
+  area_description: Conteúdo, calendário editorial, campanhas e trilhas de comunicação
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - OFF-044
+  - GTM-090
+  fields:
+  - field_id: '11.1'
+    title: Linha editorial
+    description: Tema ou pilar de conteúdo predominante do período.
+    example: 'Ex: Bastidores da construção do sistema Executar.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '11.2'
+    title: Calendário de publicação
+    description: Frequência e canais de publicação de conteúdo.
+    example: 'Ex: 2x por semana, LinkedIn e newsletter.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '11.3'
+    title: Campanha ativa
+    description: Nome e objetivo da campanha em andamento, se houver.
+    example: 'Ex: Nenhuma campanha ativa no momento.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '11.4'
+    title: Trilha de conteúdo
+    description: Sequência de peças que levam o público de um ponto a outro.
+    example: 'Ex: Post de bastidor → thread técnica → case de uso.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '11.5'
+    title: Banco de conteúdo
+    description: Onde vive o repositório de conteúdo reaproveitável (templates, ganchos, cases já usados).
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: marketing
+    skill: content-creation / draft-content
+    valor: null
+    status: pendente
+  - field_id: '11.6'
+    title: Identidade visual e voz de marca
+    description: 'Guia de marca: paleta, tipografia, tom de voz e regras de uso da identidade.'
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: marketing / design
+    skill: brand-review / design-system
+    valor: null
+    status: pendente
+  - field_id: '11.7'
+    title: Design system e componentes
+    description: Biblioteca de componentes/tokens usada nas peças e no handoff para desenvolvimento.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: design
+    skill: design-system / design-handoff
+    valor: null
+    status: pendente
+  - field_id: '11.8'
+    title: Revisão de acessibilidade
+    description: O conteúdo/design segue WCAG 2.1 AA (contraste, navegação por teclado, leitor de tela)?
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: design
+    skill: accessibility-review
+    valor: null
+    status: pendente
+  - field_id: '11.9'
+    title: Pesquisa de usuário para conteúdo
+    description: Que pesquisa de audiência embasa a linha editorial e as decisões de conteúdo.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: design
+    skill: user-research / research-synthesis
+    valor: null
+    status: pendente
+  - field_id: '11.10'
+    title: SEO e performance de conteúdo
+    description: Auditoria de SEO e relatório de performance por canal.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: marketing
+    skill: seo-audit / performance-report
+    valor: null
+    status: pendente
+  field_count: 10
+  area_status: pendente
+- area_id: 12
+  area_name: STAKEHOLDERS
+  area_description: Quem afeta ou é afetado pelo projeto, e como engajar cada um
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - GOV-003
+  fields:
+  - field_id: '12.1'
+    title: Stakeholder principal
+    description: Nome/grupo, papel, nível de interesse e influência.
+    example: 'Ex: Owner do projeto — interesse alto, influência alta.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '12.2'
+    title: Forma de comunicação
+    description: Como e com que frequência este stakeholder é atualizado.
+    example: 'Ex: Resumo semanal aos domingos, no ciclo de governança.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '12.3'
+    title: Expectativa não alinhada
+    description: Ponto de expectativa que ainda precisa de alinhamento explícito.
+    example: 'Ex: Nenhuma pendência identificada.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '12.4'
+    title: Estrutura organizacional
+    description: Papéis, hierarquia e RACI dos envolvidos no projeto.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: human-resources / operations
+    skill: org-planning / process-doc
+    valor: null
+    status: pendente
+  field_count: 4
+  area_status: pendente
+- area_id: 13
+  area_name: RUNBOOKS, SOPS E ROTINAS
+  area_description: Procedimentos padronizados e repetíveis do dia a dia operacional
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - OPS-100
+  fields:
+  - field_id: '13.1'
+    title: 'Runbook crítico #1'
+    description: Nome do procedimento e quando ele é acionado.
+    example: 'Ex: Fechamento de ciclo — rodado toda quarta e sábado.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '13.2'
+    title: Responsável pela rotina
+    description: Quem executa este runbook hoje.
+    example: 'Ex: Owner do projeto, manualmente.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '13.3'
+    title: SOP documentado?
+    description: Existe um documento formal deste procedimento? Onde vive.
+    example: 'Ex: Não determinado.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '13.4'
+    title: Otimização de processo
+    description: Algum processo já identificado como lento ou gargalo a melhorar.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: operations
+    skill: process-optimization
+    valor: null
+    status: pendente
+  - field_id: '13.5'
+    title: Cadência de briefing semanal
+    description: Existe (ou deveria existir) um briefing automatizado de início/fim de semana.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: small-business
+    skill: monday-brief / friday-brief
+    valor: null
+    status: pendente
+  field_count: 5
+  area_status: pendente
+- area_id: 14
+  area_name: PESQUISA, DADOS E CONHECIMENTO
+  area_description: Base de conhecimento, evidências, pesquisa e o papel de agentes de IA no projeto
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards:
+  - MKT-022
+  fields:
+  - field_id: '14.1'
+    title: Fonte de evidência principal
+    description: 'Onde ficam guardadas as provas objetivas de estado: documentos, commits, tickets.'
+    example: 'Ex: Google Drive, pasta Prompt-Enginner, e o próprio XLSX Central.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '14.2'
+    title: Pesquisa/dado pendente
+    description: Informação que ainda precisa ser levantada antes de uma decisão.
+    example: 'Ex: Confirmar se existe uma planilha anterior com domínios já preenchidos.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '14.3'
+    title: Papel de agentes de IA no projeto
+    description: Que tarefas um agente de IA está autorizado a executar sozinho vs. só propor.
+    example: 'Ex: Agente propõe preenchimento; humano aprova antes de mudar status.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '14.4'
+    title: Qualidade e exploração de dados
+    description: 'Perfil e qualidade dos dados disponíveis: nulos, duplicatas, inconsistências.'
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: data
+    skill: explore-data / validate-data
+    valor: null
+    status: pendente
+  - field_id: '14.5'
+    title: Busca e síntese entre fontes
+    description: Quantas fontes diferentes guardam conhecimento hoje e como isso é consolidado.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: enterprise-search
+    skill: search / knowledge-synthesis / digest
+    valor: null
+    status: pendente
+  field_count: 5
+  area_status: pendente
+- area_id: 15
+  area_name: SKILLS, PLUGINS E FERRAMENTAS
+  area_description: Inventário de skills, plugins e ferramentas usados para operar o projeto
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards: []
+  fields:
+  - field_id: '15.1'
+    title: Skill/plugin principal em uso
+    description: Nome da skill/plugin e para que ela serve neste projeto.
+    example: 'Ex: executar-xls — gera este próprio workbook.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '15.2'
+    title: Ferramenta de automação conectada
+    description: Sistema externo conectado (Linear, Drive, etc.) e o que ele resolve.
+    example: 'Ex: Google Drive — repositório de documentos e evidências.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '15.3'
+    title: Lacuna de ferramenta
+    description: Automação que falta e seria útil.
+    example: 'Ex: Não determinado.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '15.4'
+    title: Customização/criação de plugin próprio
+    description: Algum plugin específico do ecossistema precisa ser criado ou ajustado.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: cowork-plugin-management
+    skill: create-cowork-plugin / cowork-plugin-customizer
+    valor: null
+    status: pendente
+  field_count: 4
+  area_status: pendente
+- area_id: 16
+  area_name: PLATAFORMAS, CONTAS E IDENTIFICADORES
+  area_description: Atalhos, links, contas, logins e identificadores usados no dia a dia
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards: []
+  fields:
+  - field_id: '16.1'
+    title: Plataforma principal
+    description: Nome da plataforma e para que ela é usada no projeto.
+    example: 'Ex: claude.ai — projeto Control Center.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '16.2'
+    title: Link/atalho crítico
+    description: URL ou identificador que precisa estar sempre à mão.
+    example: 'Ex: Não determinado.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '16.3'
+    title: Responsável pela conta
+    description: Quem tem acesso administrativo a esta plataforma.
+    example: 'Ex: Owner do projeto.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '16.4'
+    title: Status de fornecedores/contratos
+    description: Contratos/SOWs ativos por plataforma e prazos de renovação.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: legal / operations
+    skill: vendor-check / vendor-review
+    valor: null
+    status: pendente
+  field_count: 4
+  area_status: pendente
+- area_id: 17
+  area_name: PROMPT ENGINEERING & COMANDOS
+  area_description: Prompts canônicos e comandos operacionais que governam os agentes de IA deste projeto
+  source_form: EXECUTAR_projetosaasentrypoint_EXPANDIDO
+  related_ecosystem_cards: []
+  fields:
+  - field_id: '17.1'
+    title: Prompt canônico principal
+    description: Nome do prompt-fonte e onde ele vive.
+    example: 'Ex: 02 · Project Control Agent — Google Drive, Prompt-Enginner/02-PROMPTS.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '17.2'
+    title: Comando/gatilho operacional
+    description: Palavra ou frase que aciona uma rotina específica do agente.
+    example: 'Ex: Não determinado.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '17.3'
+    title: Regra anti-alucinação específica
+    description: Restrição adicional que os agentes deste projeto devem sempre respeitar.
+    example: 'Ex: Nunca promover Status sem evidência registrada.'
+    origem: formulario_original
+    valor: null
+    status: pendente
+  - field_id: '17.4'
+    title: Sincronização de tarefas e memória
+    description: Como as tarefas dos agentes são sincronizadas com o board/lista real de trabalho.
+    example: null
+    origem: enriquecido_via_plugin
+    plugin: productivity
+    skill: update / task-management
+    valor: null
+    status: pendente
+  field_count: 4
+  area_status: pendente
+instrumentos:
+  origem: Basedocumental310826.md (31/08/2026) — §02-Preenchimento e §07-Output Requirements
+  nota: 'A base documental expande o escopo: o formulário fundido de 17 áreas/122 campos passa a ser UM
+    de cinco instrumentos a preencher, e cada um deve ser preenchido por unidade de análise (8 áreas ECO),
+    não uma única vez.'
+  lista:
+  - id: INS-01
+    nome: XLS Projeto Entrypoint Expandido (formulário fundido)
+    ids: 17 áreas / 122 campos (94 originais + 28 de plugin)
+    estado: dias 1 e 2 preenchidos (áreas 8,9,10 e 1,2 = 45 campos)
+    conflito: 'OUT-33 da base documental exige apenas 1.1–1.12, 8.1–8.5, 9.1–9.4, 10.1–10.4, 12.1–12.3,
+      14.1–14.3, 16.1–16.3 (34 campos). O formulário fundido tem 122. Pendente decisão do owner: preencher
+      os 122 ou apenas os 34 do escopo OUT-33.'
+  - id: INS-02
+    nome: Project Charter PMBOK 8
+    ids: PC-01, PC-02, PC-03, PC-04, PC-05A, PC-05B, PC-05C, PC-07
+    estado: recebido — instrumento entregue
+    conflito: ''
+    nota: O owner confirmou (31/08/2026) que o instrumento PMBOK 8 enviado é o PDF "01 · Fundamentos PMBOK
+      8 · Conceito, Perguntas e Ordem Mental" (sha256:db8133ed…dea5). Ele fornece os 6 princípios, os
+      7 domínios de desempenho, a ordem mental (VALOR → SUCESSO → GOVERNANÇA → STAKEHOLDERS → ESCOPO →
+      ABORDAGEM → PLANO → RECURSOS → FINANÇAS → RISCO → EXECUÇÃO → MONITORAMENTO → ENCERRAMENTO), as Focus
+      Areas (Iniciar→Planejar→Executar→Monitorar→Encerrar) e a hierarquia de prioridade gerencial.
+  - id: INS-03
+    nome: Workbook PMBOK 8 — Fundamentos
+    ids: WB-02 a WB-13 (12 domínios)
+    estado: É ENTREGA, não insumo
+    conflito: ''
+    nota: 'Decisão do owner (31/08/2026): o Workbook PMBOK 8 é o que será ENTREGUE ao final, consolidando
+      as principais informações do ecossistema. Deixa de ser instrumento de entrada pendente e passa a
+      ser o artefato final (tarefa #8).'
+  - id: INS-04
+    nome: Q&A Consequente
+    ids: QA-05, QA-06, QA-07, QA-08
+    estado: derivável
+    conflito: Deriva dos domínios predecessores; o PDF Fundamentos PMBOK 8 já fornece a matéria-prima
+      (7 domínios, ordem de processo, mapa mental, prioridade).
+  - id: INS-05
+    nome: Strategic Analysis Agent Runner
+    ids: SA-01 a SA-13 (13 frameworks) × 8 unidades ECO = 104 execuções
+    estado: runner recebido + base documental localizada no Drive
+    conflito: ''
+    nota: Os 214 arquivos estão no Drive do owner. Registro documental (215 linhas) em REGISTRO_DOCUMENTAL_MECE_V1.csv
+      · fileId 18m6AP55bCyxGNHcMjEiemaut7P339IXY, pasta 00_REGISTRO_DOCUMENTAL_MECE · 1Rx-RKEg7mdoMz84yBItDjxx4_i6yVHYp,
+      junto de TAXONOMIA, SCHEMA e RESUMO_EXECUTIVO_MACRO.
+  unidades_eco:
+  - ECO-01 SAS / App EXECUTAR
+  - ECO-02 Blog Risco Cognitivo
+  - ECO-03 Framework e Metodologia
+  - ECO-04 Produtos Físicos
+  - ECO-05 Infoprodutos
+  - ECO-06 Livro
+  - ECO-07 Serviços de Consultoria
+  - ECO-08 Ecossistema Creator
+  base_documental_pendente: 'RESOLVIDO — C01–C18 · 214 arquivos localizados no Drive do owner (sas.executar@gmail.com).
+    Distribuição: C01·13 C02·43 C03·4 C04·5 C05·1 C06·1 C07·10 C08·11 C09·18 C10·31 C11·10 C12·9 C13·13
+    C14·7 C15·22 C16·6 C17·5 C18·5. Taxonomia: 18 classificações MECE × 22 tipos documentais.'
+conflitos_registrados:
+- id: CONF-01
+  campo: '9.4'
+  descricao: §03-T1 marca 9.4 como TBD, mas §05 do mesmo bloco enumera cinco dependências estratégicas
+    materiais.
+  acao: Formalizar o grafo em vez de tratar como ausência de dado.
+- id: CONF-02
+  campo: '10.1'
+  descricao: §03-T1 marca 10.1 como TBD, mas §05-Cronograma traz oito marcos datados entre 07/09/2026
+    e 10/01/2027.
+  acao: 'Eleger o marco #1 — candidato: Gate de Revisão de 24/10/2026.'
+- id: CONF-03
+  campo: '10.2'
+  descricao: O valor real é "Ciclo Zero", que não consta das opções previstas no formulário original (Editorial
+    / Desenvolvimento / Governança).
+  acao: Ampliar o domínio de valores do campo.
+- id: CONF-04
+  campo: escopo INS-01
+  descricao: OUT-33 exige 34 IDs do XLS Entrypoint; o formulário fundido tem 122 campos.
+  acao: Decisão do owner sobre o escopo de preenchimento.
+  resolucao: 'Decisão operacional do Maestro, na ausência de instrução contrária: preencher os 122 campos
+    do formulário fundido, que é superconjunto dos 34 IDs exigidos por OUT-33 (1.1–1.12, 8.1–8.5, 9.1–9.4,
+    10.1–10.4, 12.1–12.3, 14.1–14.3, 16.1–16.3). Assim nenhum ID obrigatório de OUT-33 fica de fora (OUT-69)
+    e o excedente permanece rastreável. Reversível se o owner pedir escopo estrito.'
+- id: CONF-05
+  campo: calendário
+  descricao: 'O cronograma de envio (dias 1–6, 31/08 a 05/09/2026) coexiste com o roadmap do projeto (07/09/2026
+    a 10/01/2027). São eixos distintos: preenchimento documental vs. execução do ecossistema.'
+  acao: Nenhuma — registrado para evitar leitura equivocada de conflito de datas.
+pipeline_execucao:
+  origem: 'Planejamento aprovado pelo owner em 31/08/2026: "faça o planejamento, setup das tarefas, invoque
+    os agentes e execute".'
+  estrategia: multiagente — extração paralela por bloco documental, depois frameworks por unidade ECO,
+    depois síntese
+  tarefas:
+  - id: 1
+    nome: 'Ingestão: registro documental + mapa do Drive'
+    estado: em_andamento
+    agente: ingestao
+  - id: 2
+    nome: Extração de evidências C01–C06 (67 arquivos)
+    estado: pendente
+    bloqueado_por:
+    - 1
+  - id: 3
+    nome: Extração de evidências C07–C12 (89 arquivos)
+    estado: pendente
+    bloqueado_por:
+    - 1
+  - id: 4
+    nome: Extração de evidências C13–C18 (58 arquivos)
+    estado: pendente
+    bloqueado_por:
+    - 1
+  - id: 5
+    nome: 13 frameworks × 8 unidades ECO (104 execuções)
+    estado: pendente
+    bloqueado_por:
+    - 2
+    - 3
+    - 4
+  - id: 6
+    nome: 'Dia 2 do formulário: áreas 1 e 2'
+    estado: pendente
+    bloqueado_por:
+    - 2
+    - 3
+    - 4
+  - id: 7
+    nome: Registros auxiliares OUT-54..OUT-59
+    estado: pendente
+    bloqueado_por:
+    - 5
+  - id: 8
+    nome: Workbook consolidado final (entrega)
+    estado: pendente
+    bloqueado_por:
+    - 5
+    - 6
+    - 7
