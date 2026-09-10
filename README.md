@@ -1,31 +1,49 @@
-# Programa SAS
+# sas-executar-governance · transição em revisão
 
-Estrutura documental do Ecossistema SAS · Custo Cognitivo · Executar, criada conforme GOV-IDX-030-001 em 07/09/2026.
+## 1. Propósito
+GOVERNAR: autoridade, IDs, evidências, decisões, riscos e gates. Nome atual: `Programa-Sas`. O nome alvo ainda não foi aplicado.
 
-[Índice mestre](00_governanca/MASTER_INDEX.md) · [Guia de preenchimento e submissão](00_governanca/GUIA_DE_SUBMISSAO.md) · [Registro de documentos](00_governanca/RMOC_MASTER_IDS_16_DOMINIOS_V1.csv) · [Gates](02_lancamento/README.md)
+## 2. Não é
+Código de runtime e especificações de desenvolvimento não devem criar autoridades duplicadas aqui.
 
-## Comece aqui
+## 3. Source of Truth
+[GOV-IDX-030-001](00_governanca/MASTER_INDEX.md), RMOC, D01–D16, 30 documentos e G00–G12 permanecem nos caminhos originais.
 
-1. Localize a área e o ID no índice mestre.
-2. Preencha o modelo canônico em `00_documentos`, mantendo seu ID e caminho.
-3. Armazene materiais de apoio no tópico/subtópico correspondente e vincule-os ao documento.
-4. Registre a submissão para revisão conforme o guia, quando iniciar essa etapa.
+## 4. Relação entre repositórios
+Governance → Blueprints → Ecosystem. Maestro atua transversalmente.
 
-## Organização
+- [Maestro](https://github.com/Sas-Executar/Maestr-Docs): OPERAR.
+- [Blueprints](https://github.com/Sas-Executar/Executar-app-Blueprint): ESPECIFICAR.
+- [Governance](https://github.com/Sas-Executar/Programa-Sas): GOVERNAR.
+- [Ecosystem](https://github.com/Sas-Executar/next-forge): IMPLEMENTAR + RELEASE.
 
-| Diretório | Uso |
-|---|---|
-| 00_governanca | Índices, referência original, regras e registros |
-| 01_areas | 16 áreas com documentos, tópicos e subtópicos |
-| 02_lancamento | 13 gates G00–G12 para futura comprovação |
-| 03_submissoes | Registro e modelo de submissão |
-| 04_evidencias | Evidências vinculadas por ID |
-| 05_arquivo | Versões substituídas e materiais históricos |
+## 5. Estrutura
+- `00_input/`
+- `01_master-index/`
+- `02_areas/`
+- `03_submissions/`
+- `04_evidence/`
+- `05_decisions/`
+- `06_risks/`
+- `07_gates/`
+- `08_policies/`
+- `99_archive/`
 
-## Limites desta entrega
+As estruturas anteriores são preservadas durante a transição. Diretórios novos não promovem artefatos a canônicos automaticamente.
 
-Existem 30 modelos: 16 macro e 14 especializados; criar o arquivo não significa aprovar seu conteúdo. Os 14 especializados são recomendados na fonte e continuam pendentes de validação. Os 48 tópicos e 96 subtópicos são um detalhamento organizacional proposto a partir das responsabilidades, sem alegação de transcrição literal. Owners, prazos, orçamento e aprovações ainda não foram definidos.
+## 6. Workflow
+Entrada → inventário → trabalho em branch → validação → PR → decisão explícita → merge → atualização dos índices.
 
-O repositório é público: não enviar dados pessoais, credenciais, contratos confidenciais ou evidências restritas; registrar apenas referências adequadas em ambiente com acesso controlado.
+## 7. Estados
+`draft ≠ review ≠ approved ≠ implemented ≠ tested ≠ verified ≠ released`. Preservar também pre_approved, accepted e demais estados encontrados. `registered`, `registered_reference`, `registered_from_source` e `registered_analysis` não significam implementação. A classificação de proveniência não altera a classificação das afirmações da fonte.
 
-O documento anterior em `docs/governance` permanece como registro histórico; esta estrutura define agora o propósito documental do repositório.
+## 8. Contribuição
+Usar migration/*, blueprint/*, wf/*, integration/*, fix/* ou release/*. Branch representa trabalho. main é o estado-alvo canônico após aprovação e integração explícitas. Se main não existir, a branch default observada não comprova aprovação. Não reescrever histórico ou remover fontes durante a migração.
+
+## 9. Traceability
+Origem repo/branch/SHA/path → ID → requisito → AC → target → teste/evidência → release. Campos desconhecidos: GAP; owner desconhecido fica vazio. PROPOSED não é requisito existente.
+
+## 10. Migration status
+PASS_WITH_GAPS: estrutura em revisão, fontes preservadas. Renomeação, absorções, redistribuição e archive pendentes. A cópia documental do Maestro está nos PRs 2–4 do Programa-Sas; verificação de bytes não é aprovação documental.
+
+[README anterior](00_input/README_BEFORE_MIGRATION.md) preservado como snapshot de referência com caminhos relativos do contexto original.
