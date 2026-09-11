@@ -1,0 +1,122 @@
+{
+  "profile": "wi_map_report_uix.akw.v2",
+  "principles": [
+    "information > space > state > border",
+    "raw tokens -> semantic aliases -> components",
+    "placeholder != real data",
+    "complete uses brand blue, not generic green"
+  ],
+  "components": {
+    "document_surface": {
+      "role": "container",
+      "states": [
+        "screen",
+        "print"
+      ],
+      "tokens": [
+        "color.semantic.surface",
+        "color.semantic.stroke_default"
+      ]
+    },
+    "section_header": {
+      "props": [
+        "label",
+        "title",
+        "meta",
+        "icon"
+      ],
+      "svg": true
+    },
+    "metric": {
+      "variants": [
+        "default",
+        "brand",
+        "gate",
+        "complete",
+        "error"
+      ]
+    },
+    "status_chip": {
+      "variants": [
+        "neutral",
+        "brand",
+        "gate",
+        "complete",
+        "error"
+      ],
+      "min_touch_target": "44px when interactive"
+    },
+    "progress": {
+      "props": [
+        "value",
+        "label"
+      ],
+      "states": [
+        "empty",
+        "partial",
+        "complete"
+      ],
+      "complete_color": "brand"
+    },
+    "execution_card": {
+      "props": [
+        "index",
+        "meta",
+        "title",
+        "progress",
+        "deliverable",
+        "tasks"
+      ],
+      "variants": [
+        "default",
+        "gate",
+        "complete",
+        "blocked"
+      ]
+    },
+    "fractal_node": {
+      "states": [
+        "idle",
+        "current",
+        "done"
+      ],
+      "radius_token": "radius.fractal"
+    },
+    "progress_spine": {
+      "states": [
+        "idle",
+        "current",
+        "done"
+      ],
+      "behavior": "vertical hierarchy with dot + connector + label + progress"
+    },
+    "cycle_triptych": {
+      "columns": 3,
+      "active_surface": "brand_tint",
+      "rule": "continuous canvas; not three elevated cards"
+    },
+    "action_card": {
+      "rule": "information and CTA dominate; closed card border is optional"
+    },
+    "print_prism_face": {
+      "props": [
+        "face_index",
+        "safe_x_mm",
+        "safe_y_mm"
+      ],
+      "geometry": {
+        "page_mm": [
+          210,
+          297
+        ],
+        "trim_mm": 10,
+        "usable_mm": [
+          190,
+          277
+        ],
+        "face_height_mm": 92.333
+      },
+      "print_color_adjust": "exact"
+    }
+  }
+}

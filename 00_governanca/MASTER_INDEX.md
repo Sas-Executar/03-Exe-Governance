@@ -58,6 +58,14 @@
 | D11-DOC-DSI-001 | especializado | [Sistema de Design e Interface](../01_areas/D11__experiencia-e-projeto/00_documentos/D11-DOC-DSI-001__sistema-de-design-e-interface.md) | Modelo; validação pendente |
 | D13-DOC-GTM-001 | especializado | [Plano de Entrada no Mercado e Lançamento](../01_areas/D13__mercado-e-geracao-de-demanda/00_documentos/D13-DOC-GTM-001__plano-de-entrada-no-mercado-e-lancamento.md) | Modelo; validação pendente |
 
+## Campanhas
+
+Pacotes comerciais que atravessam áreas, fora da família dos 30 documentos e sem caminho canônico único em `01_areas`.
+
+| ID | Campanha | Estado |
+|---|---|---|
+| C01 | [EXECUTAR — GTM, Vídeos e Assets (Claude Design)](../06_campanhas/C01__executar-gtm-video-claude-design/README.md) | Fonte recebida; validação pendente |
+
 ## Registros operacionais
 
 - [Taxonomia de tópicos e subtópicos](TAXONOMIA_TOPICOS_SUBTOPICOS.csv)
@@ -65,3 +73,4 @@
 - [Submissões](../03_submissoes/REGISTRO_SUBMISSOES.csv)
 - [Evidências](../04_evidencias/REGISTRO_EVIDENCIAS.csv)
 - [Fonte recebida](01_referencias/GOV-IDX-030-001__fonte-recebida.md)
+- [Campanhas](../06_campanhas/README.md)

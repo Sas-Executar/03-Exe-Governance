@@ -22,3 +22,7 @@ Owner: A definir · Estado: Estruturado, aguardando preenchimento.
 | D13-T03 | [Entrada no mercado](03__entrada-no-mercado/README.md) |
 
 Os documentos têm uma única localização canônica; os tópicos recebem materiais complementares e referências.
+
+## Campanhas vinculadas
+
+- [C01 — EXECUTAR: GTM, Vídeos e Assets](../../06_campanhas/C01__executar-gtm-video-claude-design/README.md): categoria, posicionamento mestre, sistema de mensagens, PRD audiovisual e specs de filmes e cutdowns, como fonte recebida.

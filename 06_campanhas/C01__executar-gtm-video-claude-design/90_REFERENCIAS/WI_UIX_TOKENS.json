@@ -1,0 +1,76 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "name": "WI MAP / REPORT UIX — AKW/EXECUTAR",
+    "version": "2.0.0",
+    "profile": "wi_map_report_uix.akw.v2",
+    "source_skills": [
+      "AKW-M05-P02-S03_design-handoff",
+      "AKW-M05-P02-S04_design-system",
+      "AKW-M05-P04-S01_executar-design"
+    ]
+  },
+  "color": {
+    "primitive": {
+      "white": "#FFFFFF",
+      "grey_98": "#FAFAFA",
+      "grey_96": "#F5F5F5",
+      "grey_92": "#EDEDED",
+      "grey_82": "#D1D1D1",
+      "grey_62": "#767676",
+      "grey_38": "#616161",
+      "grey_14": "#242424",
+      "blue_90": "#EBF3FC",
+      "blue_50": "#0F6CBD",
+      "blue_40": "#115EA3",
+      "red_50": "#D13438",
+      "amber_50": "#FFF4E8",
+      "amber_60": "#C05A22",
+      "navy_95": "#121B34"
+    },
+    "semantic": {
+      "canvas": "{color.primitive.white}",
+      "surface": "{color.primitive.white}",
+      "surface_subtle": "{color.primitive.grey_98}",
+      "text_primary": "{color.primitive.grey_14}",
+      "text_secondary": "{color.primitive.grey_38}",
+      "stroke_subtle": "{color.primitive.grey_96}",
+      "stroke_default": "{color.primitive.grey_92}",
+      "stroke_strong": "{color.primitive.grey_82}",
+      "brand": "{color.primitive.blue_50}",
+      "brand_hover": "{color.primitive.blue_40}",
+      "brand_tint": "{color.primitive.blue_90}",
+      "complete": "{color.primitive.blue_50}",
+      "gate": "{color.primitive.amber_60}",
+      "gate_tint": "{color.primitive.amber_50}",
+      "error": "{color.primitive.red_50}"
+    }
+  },
+  "spacing": {
+    "4": "4px",
+    "8": "8px",
+    "12": "12px",
+    "16": "16px",
+    "24": "24px",
+    "32": "32px"
+  },
+  "radius": {
+    "fractal": "2px",
+    "control": "6px",
+    "overlay": "8px"
+  },
+  "motion": {
+    "fast": "100ms",
+    "standard": "200ms",
+    "cascade": "260ms",
+    "easing": "cubic-bezier(.2,.8,.2,1)"
+  },
+  "print": {
+    "page": "A4 portrait",
+    "trim_mm": 10,
+    "usable_width_mm": 190,
+    "usable_height_mm": 277,
+    "prism_faces": 3,
+    "prism_face_height_mm": 92.333
+  }
+}

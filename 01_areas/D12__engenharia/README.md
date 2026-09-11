@@ -21,3 +21,7 @@ Owner: A definir · Estado: Estruturado, aguardando preenchimento.
 | D12-T03 | [Infraestrutura e implantação](03__infraestrutura-e-implantacao/README.md) |
 
 Os documentos têm uma única localização canônica; os tópicos recebem materiais complementares e referências.
+
+## Campanhas vinculadas
+
+- [C01 — EXECUTAR: GTM, Vídeos e Assets](../../06_campanhas/C01__executar-gtm-video-claude-design/README.md): contrato de fronteiras entre packages de UI. Os packages `brand-assets`, `marketing-ui`, `motion-system` e `video-compositions` são propostas dependentes de inspeção do Turborepo no repositório de produto.

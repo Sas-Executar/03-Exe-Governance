@@ -23,3 +23,7 @@ Owner: A definir · Estado: Estruturado, aguardando preenchimento.
 | D02-T03 | [Privacidade e contratos](03__privacidade-e-contratos/README.md) |
 
 Os documentos têm uma única localização canônica; os tópicos recebem materiais complementares e referências.
+
+## Campanhas vinculadas
+
+- [C01 — EXECUTAR: GTM, Vídeos e Assets](../../06_campanhas/C01__executar-gtm-video-claude-design/README.md): classes de claim C0–C3, bloqueios de afirmação e gate de publicação, pendentes de validação jurídica.
