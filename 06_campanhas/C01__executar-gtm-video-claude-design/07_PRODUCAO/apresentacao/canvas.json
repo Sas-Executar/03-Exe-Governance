@@ -1,0 +1,20 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "01 · Big Idea", "x": 0, "y": 0, "w": 1920, "h": 1080 },
+    { "file": "Problema.dc.html", "title": "02 · Problema", "x": 2040, "y": 0, "w": 1920, "h": 1080 },
+    { "file": "Contraste.dc.html", "title": "03 · Contraste", "x": 4080, "y": 0, "w": 1920, "h": 1080 },
+    { "file": "Publicos.dc.html", "title": "04 · Públicos", "x": 0, "y": 1280, "w": 1920, "h": 1080 },
+    { "file": "Mensagens.dc.html", "title": "05 · Mensagens", "x": 2040, "y": 1280, "w": 1920, "h": 1080 },
+    { "file": "DirecaoVisual.dc.html", "title": "06 · Direção visual", "x": 4080, "y": 1280, "w": 1920, "h": 1080 },
+    { "file": "Produto.dc.html", "title": "07 · Produto como prova", "x": 0, "y": 2560, "w": 1920, "h": 1080 },
+    { "file": "Storyboard.dc.html", "title": "08 · Storyboard", "x": 2040, "y": 2560, "w": 1920, "h": 1080 },
+    { "file": "Assets.dc.html", "title": "09 · Assets", "x": 4080, "y": 2560, "w": 1920, "h": 1080 },
+    { "file": "QA.dc.html", "title": "10 · QA e aprovações", "x": 0, "y": 3840, "w": 1920, "h": 1080 }
+  ],
+  "annotations": [
+    { "id": "premissa-marca", "x": 2040, "y": 3900, "w": 720, "text": "Premissa, não decisão: a cor de marca #3157C8 vem do ADR-002. Os tokens AKW v2 dizem #0F6CBD e as pranchas recebidas não têm cor nenhuma. D11 decide; a troca é de um token." },
+    { "id": "premissa-tipografia", "x": 2880, "y": 3900, "w": 720, "text": "Tipografia é placeholder: nenhuma família está declarada nos tokens recebidos. Archivo e IBM Plex foram escolhidas para sustentar a apresentação, não como decisão de marca." },
+    { "id": "estado-ui", "x": 3720, "y": 3900, "w": 720, "text": "Toda tela de produto aqui é CONCEITO. Sem inspeção do Turborepo, nenhuma pode ser mostrada como funcionalidade publicada." }
+  ],
+  "launch": { "view": "canvas" }
+}

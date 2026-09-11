@@ -21,6 +21,7 @@ Comece por [`00_COMECE_AQUI/00_MASTER_INDEX.md`](00_COMECE_AQUI/00_MASTER_INDEX.
 | [04_UI_PACKAGES](04_UI_PACKAGES/) | Contrato de fronteiras entre packages de UI | Autoridades existentes preservadas; packages novos são proposta |
 | [05_HANDOFF](05_HANDOFF/) | Handoff operacional e prompt de modo Plan para Claude Design | Instrução de execução |
 | [06_GOVERNANCA](06_GOVERNANCA/) | Classes de claim C0–C3, bloqueios, QA por asset e gate de publicação | Regra de campanha, a conciliar com D02 e D09 |
+| [07_PRODUCAO](07_PRODUCAO/) | Trabalho derivado: inventário, storyboards dos três filmes, matriz de cenas, manifesto de assets, primeira apresentação e riscos | Produzido neste repositório; entregue para revisão, nada aprovado |
 | [90_REFERENCIAS](90_REFERENCIAS/) | Fontes originais de GTM, UIX, tokens AKW v2, contratos de componentes e auditoria de UI | Material recebido, não normativo por si |
 | [91_FONTES_RECEBIDAS](91_FONTES_RECEBIDAS/) | Posicionamento mestre e sistema de mensagens, como recebidos | Texto original sem edição |
 
