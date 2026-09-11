@@ -22,3 +22,7 @@ Owner: A definir · Estado: Estruturado, aguardando preenchimento.
 | D09-T03 | [Experimentação](03__experimentacao/README.md) |
 
 Os documentos têm uma única localização canônica; os tópicos recebem materiais complementares e referências.
+
+## Campanhas vinculadas
+
+- [C01 — EXECUTAR: GTM, Vídeos e Assets](../../06_campanhas/C01__executar-gtm-video-claude-design/README.md): formulação pública de evidências e separação entre evidência, prática e hipótese de produto.

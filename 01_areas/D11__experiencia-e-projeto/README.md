@@ -22,3 +22,7 @@ Owner: A definir · Estado: Estruturado, aguardando preenchimento.
 | D11-T03 | [Sistema de design](03__sistema-de-design/README.md) |
 
 Os documentos têm uma única localização canônica; os tópicos recebem materiais complementares e referências.
+
+## Campanhas vinculadas
+
+- [C01 — EXECUTAR: GTM, Vídeos e Assets](../../06_campanhas/C01__executar-gtm-video-claude-design/README.md): identidade, tokens e componentes usados em peças comerciais. Há conflito registrado entre a paleta monocromática das pranchas recebidas e o azul de marca dos tokens AKW v2; a decisão pertence a esta área.

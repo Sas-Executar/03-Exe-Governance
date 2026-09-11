@@ -21,3 +21,7 @@ Owner: A definir · Estado: Estruturado, aguardando preenchimento.
 | D16-T03 | [Comunidade e desempenho](03__comunidade-e-desempenho/README.md) |
 
 Os documentos têm uma única localização canônica; os tópicos recebem materiais complementares e referências.
+
+## Campanhas vinculadas
+
+- [C01 — EXECUTAR: GTM, Vídeos e Assets](../../06_campanhas/C01__executar-gtm-video-claude-design/README.md): catálogo de assets, formatos 16:9, 9:16, 4:5 e 1:1, stills, thumbnails, hero loops e packshots.
