@@ -1,0 +1,7 @@
+current_repository,target_name_or_state,role,cutover_status,preconditions
+"Sas-Executar/next-forge","sas-executar-ecosystem","ECOSYSTEM","RENAMING_PENDING","PR #4 + implementation PRs reviewed; docs links checked; cutover owner approval"
+"Sas-Executar/Maestr-Docs","sas-executar-maestro","MAESTRO","RENAMING_PENDING","PR #3 reviewed; operational registry accepted; source links checked"
+"Sas-Executar/Programa-Sas","sas-executar-governance","GOVERNANCE","RENAMING_PENDING","main/default-branch decision; migration PR chain merged; links checked"
+"Sas-Executar/Executar-app-Blueprint","sas-executar-blueprints","BLUEPRINTS","RENAMING_PENDING","visibility decision for Product-Spec; PR chain reviewed; links checked"
+"Sas-Executar/EXECUTAR-Product-Spec","ARCHIVE_AFTER_MIGRATION","PRODUCT_SPEC","ARCHIVE_BLOCKED","Target privacy/visibility, source branch reconciliation, link validation, owner approval"
+"Sas-Executar/Desyng-System-ecossitema.","ARCHIVE_OR_READ_ONLY_AFTER_MIGRATION","DESIGN_SOURCE","ARCHIVE_BLOCKED","31 binary assets transfer/reference decision; code reconciliation; target review and links"
