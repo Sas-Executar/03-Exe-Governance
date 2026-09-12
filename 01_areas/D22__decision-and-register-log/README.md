@@ -7,7 +7,7 @@
 | ID | Tipo | Documento | Estado |
 |---|---|---|---|
 | `D22-DOC-DRL-001` | macro | Decision and Register Log do Ecossistema | ID registrado; modelo a estruturar |
-| `D22-DOC-RDE-001` | especializado | [Registro de Decisões do Ecossistema](./D22-DOC-RDE-001.md) | ATIVO — contém decisão aceita |
+| `D22-DOC-RDE-001` | especializado | [Registro de Decisões do Ecossistema](./D22-DOC-RDE-001.md) | ATIVO — contém decisões aceitas |
 | `D22-DOC-RGE-001` | especializado | Registro Geral do Ecossistema | ID registrado; modelo a estruturar |
 
 ## Documento macro
@@ -19,6 +19,7 @@
 | ID | Decisão | Estado | Data |
 |---|---|---|---|
 | `D22-DEC-001` | Padrão canônico de interface do EXECUTAR | ACEITA | 2026-09-12 |
+| `D22-DEC-002` | Área Studio / Consultoria do EXECUTAR | ACEITA | 2026-09-12 |
 
 ## Regra
 
