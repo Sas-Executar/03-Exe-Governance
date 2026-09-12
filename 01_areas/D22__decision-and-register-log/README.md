@@ -20,6 +20,7 @@
 |---|---|---|---|
 | `D22-DEC-001` | Padrão canônico de interface do EXECUTAR | ACEITA | 2026-09-12 |
 | `D22-DEC-002` | Área Studio / Consultoria do EXECUTAR | ACEITA | 2026-09-12 |
+| `D22-DEC-003` | [Wireframe canônico da área Chat com Agente de IA](./D22-DEC-003.md) | ACEITA | 2026-09-12 |
 
 ## Regra
 
